@@ -18,7 +18,7 @@ public class JDBCUserDAO implements UserDAO {
 	
 	@Override
 	public void saveUser(String username, String password) {
-		String sqlInsertNewUser = "INSERT INTO users(username, password) VALUES (?,?)";
+		String sqlInsertNewUser = "INSERT INTO users(username, password) VALUES (?, ?)";
 		jdbcTemplate.update(sqlInsertNewUser, username, password);
 	}
 

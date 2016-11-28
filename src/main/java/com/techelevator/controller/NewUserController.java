@@ -26,7 +26,7 @@ public class NewUserController {
 			return "newUser";
 	}
 	
-	@RequestMapping(path="/users", method=RequestMethod.POST) 
+	@RequestMapping(path="/users/new", method=RequestMethod.POST) 
 	public String createUser(@RequestParam String username, @RequestParam String password) {
 		userDAO.saveUser(username, password);
 		return "redirect:/login";
