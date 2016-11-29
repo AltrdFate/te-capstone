@@ -19,7 +19,7 @@
 					for="confirmPassword">Confirm Password : </label><input
 					type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
 					<p>
-				<button type="submit" class="btn btn-primary">Create New
+				<button type="submit">Create New
 					Account</button>
 			</form>
 		</div>
