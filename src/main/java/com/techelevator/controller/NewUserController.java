@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +26,7 @@ public class NewUserController {
 	public String displayNewUserForm() {
 			return "newUser";
 	}
-	
+	@Transactional
 	@RequestMapping(path="/users/new", method=RequestMethod.POST) 
 	public String createUser(@RequestParam String username, @RequestParam String password) {
 		userDAO.saveUser(username, password);
