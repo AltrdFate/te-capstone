@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-//Need to add URL 
+
 <c:url var ="formAction" value="NEEDURL"/>
 
 <form method = "POST" action="${formAction}">
@@ -11,6 +11,7 @@
 	<button type="submit">Login</button>
 </form>
 
-//Add URL for create a new account
 <c:url var ="signUpURL" value="/users/new"/>
 Don't have an account yet? <a href="${signUpURL}">Sign Up</a>
+
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />
