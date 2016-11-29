@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="userForm">
 			<c:url var="formAction" value="/users/new" />
-			<form method="POST" action="${formAction}">
+			<form method="POST" action="${formAction}" id="newUserForm">
 				<label for="username">User Name : </label><input type="text"
 					id="username" name="username" placeholder="Username"> 
 					<p>

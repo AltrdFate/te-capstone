@@ -8,6 +8,10 @@
 <c:url value="/css/mealplanner.css" var="cssHref" />
 <link href="stylesheet" href="${bootstrapHref}">
 <link href="stylesheet" href="${cssHref}">
+<script src="/capstone/js/jquery.min.js"></script>
+<script src="/capstone/js/jquery.validate.min.js"></script>
+<script src="/capstone/js/newUserValidation.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 </head>
 
 <body>
