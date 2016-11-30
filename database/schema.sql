@@ -20,6 +20,7 @@ CREATE TABLE recipe (
 	recipe_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_recipe_recipe_id'),
 	user_id INTEGER NOT NULL,
 	name varchar(40),
+	description varchar(300),
 	ingredients varchar(300),
 	step1 varchar(300),
 	step2 varchar(300),

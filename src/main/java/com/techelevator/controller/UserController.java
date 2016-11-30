@@ -71,17 +71,11 @@ public class UserController {
 		return destination != null && destination.startsWith("http://localhost");
 	}
 	
-	@RequestMapping(path="/addRecipe", method=RequestMethod.GET)
-	public String displayAddRecipePage(//ModelMap model, 
-			//@RequestParam String username, 
-			//@RequestParam String password, 
-			//@RequestParam(required = false) String destination,
-			HttpSession session) {
-		//model.put("currentUser",username);
-			session.getAttribute("currentUser");
-			
+	/*@RequestMapping(path="/addRecipe", method=RequestMethod.GET)
+	public String displayAddRecipePage(HttpSession session) {
+		session.getAttribute("currentUser");
 		return "addARecipe";
-	}
+	}*/
 	
 	
 //	@RequestMapping(path="/users/{userName}", method=RequestMethod.GET)
