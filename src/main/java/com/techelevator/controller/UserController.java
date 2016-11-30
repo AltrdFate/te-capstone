@@ -41,28 +41,34 @@ public class UserController {
 		return "login";
 	}
 	
-/*	@RequestMapping(path="/login", method = RequestMethod.POST)
+	@RequestMapping(path="/login", method = RequestMethod.POST)
 	public String login(Map<String, Object> model, 
 						@RequestParam String username, 
 						@RequestParam String password, 
-						@RequestParam(required = false) String destination,
+						//@RequestParam(required = false) String destination,
 						HttpSession session) {
 		if (userDAO.searchForUsernameAndPassword(username, password)) {
 			session.invalidate();
 			model.put("currentUser", username);
-			if(isValidRedirect(destination)) {
-				return "redirect:"+destination;
-			}else {
-				return "redirect:/dashboard";
-			}
+			return "redirect:/dashboard";
+//			if(isValidRedirect(destination)) {
+//				return "redirect:"+destination;
+//			}else {
+//				return "redirect:/dashboard";
+//			}
 		}else {
 			return "redirect:/login";	
 		}	
 	}
 	
+	@RequestMapping(path="/dashboard", method=RequestMethod.GET)
+	public String displayDashboardPage() {
+		return "dashboard";
+	}
+	
 	private boolean isValidRedirect(String destination) {
 		return destination != null && destination.startsWith("http://localhost");
-	}*/
+	}
 	
 	
 //	@RequestMapping(path="/users/{userName}", method=RequestMethod.GET)

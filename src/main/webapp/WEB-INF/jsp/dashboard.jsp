@@ -2,3 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+Welcome, <c:out value="${param.currentUser}"/>! 
+
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

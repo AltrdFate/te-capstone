@@ -3,11 +3,11 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 
-<c:url var ="formAction" value="NEEDURL"/>
+<c:url var ="formAction" value="/login"/>
 
 <form method = "POST" action="${formAction}">
 	<input type="hidden" name="destination" value="${param.destination}" />
-	<label for="username">User Name : </label><input type="text" id="username" name="username">
+	<label for="username">Username : </label><input type="text" id="username" name="username">
 	<label for="password">Password : </label><input type="text" id="password" name="password">
 	<button type="submit">Login</button>
 </form>
