@@ -8,19 +8,16 @@
 		<div class="userForm">
 			<c:url var="formAction" value="/users/new" />
 			<form method="POST" action="${formAction}" id="newUserForm">
-				<label for="username">User Name : </label><input type="text"
-					id="username" name="username" placeholder="Username"> 
+				<label for="username">User Name : </label>
+					<input type="text" id="username" name="username" placeholder="Username"> 
 					<p>
-					<label for="password">Password
-					: </label>
+				<label for="password">Password : </label>
 					<input type="password" id="password" name="password" placeholder="Password"> 
 					<p>
-					<label
-					for="confirmPassword">Confirm Password : </label><input
-					type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+				<label for="confirmPassword">Confirm Password : </label>
+					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
 					<p>
-				<button type="submit">Create New
-					Account</button>
+				<button type="submit" id="submitNewUser">Create New Account</button>
 			</form>
 		</div>
 		<div class="noteToUser">
