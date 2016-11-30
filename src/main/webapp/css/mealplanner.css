@@ -1,9 +1,49 @@
- body {
+/*  body {
 	margin: 20px;
-/* 	background-image: url('/capstone/img/splash-page-bg.jpg');
+	background-image: url('/capstone/img/splash-page-bg.jpg');
 	background-size: cover;
-	background-repeat: no-repeat;  */
+	background-repeat: no-repeat; 
 } 
+ */
+ 
+.jumbotron {
+	background-image: url('/capstone/img/splash-page-bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 400px;
+	text-align: center;
+	color: white;
+	text-shadow: 2px 2px 15px #000000;
+}
+
+.header {
+	margin: 20px 20px 0px 20px;
+}
+
+.welcomeHeader{
+	margin: 20px 10px 20px 20px;
+}
+
+.dashboardOptions {
+	margin: 0px 50px;
+}
+
+.option {
+	position: relative;
+	display: inline-block;
+	width: 275px;
+	height: 250px;
+	vertical-align: top;
+	padding: 20px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: lightgrey;
+	background-color: #E5E4E2;
+	border-radius: 60px; 
+	margin: 20px;
+}
+
+
 
 .centerpiece {
 	width: 350px;
