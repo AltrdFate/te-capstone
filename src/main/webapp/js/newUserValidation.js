@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	$("#newUserForm").validate({
-	
-		debug: true,
+
 		rules: {
 			username: {
 				required: true,
