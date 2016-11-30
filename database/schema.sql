@@ -22,21 +22,7 @@ CREATE TABLE recipe (
 	name varchar(40),
 	description varchar(300),
 	ingredients varchar(300),
-	step1 varchar(300),
-	step2 varchar(300),
-	step3 varchar(300),
-	step4 varchar(300),
-	step5 varchar(300),
-	step6 varchar(300),
-	step7 varchar(300),
-	step8 varchar(300),
-	step9 varchar(300),
-	step10 varchar(300),
-	step11 varchar(300),
-	step12 varchar(300),
-	step13 varchar(300),
-	step14 varchar(300),
-	step15 varchar(300)
+	directions varchar(1000)
 );
 
 ALTER TABLE recipe ADD CONSTRAINT fk_recipe_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);

@@ -9,7 +9,7 @@ public class Recipe {
 	private Long userId;
 	private String description;
 	private String ingredients;
-	private ArrayList<String> steps;
+	private String directions;
 	
 	public Long getRecipeId() {
 		return recipeId;
@@ -30,11 +30,24 @@ public class Recipe {
 	public void setIngredients(String ingredients) {
 		this.ingredients = ingredients;
 	}
-	public ArrayList<String> getSteps() {
-		return steps;
+
+	public String getRecipeName() {
+		return recipeName;
 	}
-	public void setSteps(ArrayList<String> steps) {
-		this.steps = steps;
+	public void setRecipeName(String recipeName) {
+		this.recipeName = recipeName;
+	}
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	public String getDirections() {
+		return directions;
+	}
+	public void setDirections(String directions) {
+		this.directions = directions;
 	}
 
 }

@@ -5,11 +5,12 @@
 Welcome, <c:out value="${currentUser}"/>!
 <div>
 	<p>Please Enter A Recipe</p>
-		<c:url value="URLHERE" var="formAction"/>
-		<form method = "POST" action="${formAction}">
+	<form>
+		<c:url value="/addRecipe" var="formAction"/>
+			<input type="hidden" id="userId" name="userId" value="${userId}"/>
 			<div>
-				<label for="title">Recipe Title</label>
-				<input type="text" id="title" name="title"/>
+				<label for="recipeName">Recipe Name:</label>
+				<input type="text" id="recipeName" name="recipeName"/>
 			</div>
 			
 			<div>
@@ -28,7 +29,7 @@ Welcome, <c:out value="${currentUser}"/>!
 				<input type="text" id="directions" name="directions"
 				placeholder="Put each step on its own line."/>
 			</div>
-			
+			<button type="submit" id="createRecipeButton" class="btn btn-primary">Submit</button>
 			
 		</form>
 </div>
