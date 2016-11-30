@@ -70,6 +70,11 @@ public class UserController {
 		return destination != null && destination.startsWith("http://localhost");
 	}
 	
+	@RequestMapping(path="/addRecipe", method=RequestMethod.GET)
+	public String displayAddRecipePage() {
+		return "addARecipe";
+	}
+	
 	
 //	@RequestMapping(path="/users/{userName}", method=RequestMethod.GET)
 //	public String displayDashboard(Map<String, Object> model, @PathVariable String userName) {
