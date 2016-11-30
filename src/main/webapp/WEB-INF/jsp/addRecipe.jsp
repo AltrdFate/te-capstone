@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-Welcome, <c:out value="${param.currentUser}"/>!
+Welcome, <c:out value="${currentUser}"/>!
 <div>
 	<p>Please Enter A Recipe</p>
 		<c:url value="URLHERE" var="formAction"/>

@@ -17,7 +17,8 @@
 	<div class="optionDetails">
 		<h3>My Recipes</h3>
 		<ul>
-			<li>Add a Recipe</li>
+			<c:url var="addRecipe" value="/addRecipe"/>
+			<li><a href="${addRecipe}">Add a Recipe</a></li>
 			<li>Modify a Recipe</li>
 			<li>View My Recipe Library</li>
 		</ul>

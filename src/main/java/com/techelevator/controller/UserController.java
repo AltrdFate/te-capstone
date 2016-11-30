@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,20 +43,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/login", method = RequestMethod.POST)
-	public String login(Map<String, Object> model, 
+	public String login(ModelMap model, 
 						@RequestParam String username, 
 						@RequestParam String password, 
-						//@RequestParam(required = false) String destination,
+						@RequestParam(required = false) String destination,
 						HttpSession session) {
 		if (userDAO.searchForUsernameAndPassword(username, password)) {
 			session.invalidate();
 			model.put("currentUser", username);
-			return "redirect:/dashboard";
-//			if(isValidRedirect(destination)) {
-//				return "redirect:"+destination;
-//			}else {
-//				return "redirect:/dashboard";
-//			}
+			//return "redirect:/dashboard";
+			if(isValidRedirect(destination)) {
+				return "redirect:"+destination;
+			}else {
+				return "redirect:/dashboard";
+			}
 		}else {
 			return "redirect:/login";	
 		}	
@@ -71,7 +72,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/addRecipe", method=RequestMethod.GET)
-	public String displayAddRecipePage() {
+	public String displayAddRecipePage(//ModelMap model, 
+			//@RequestParam String username, 
+			//@RequestParam String password, 
+			//@RequestParam(required = false) String destination,
+			HttpSession session) {
+		//model.put("currentUser",username);
+			session.getAttribute("currentUser");
+			
 		return "addARecipe";
 	}
 	
