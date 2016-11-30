@@ -22,7 +22,7 @@ public class JDBCRecipeDAO implements RecipeDAO{
 	
 	@Override
 	public List<Recipe> viewRecipesByUserId(Long id) {
-		String sqlSelectRecipesByUserId = "Select * From recipe Where user_id = ?;";
+		String sqlSelectRecipesByUserId = "SELECT * FROM recipe WHERE user_id = ?;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectRecipesByUserId, id);
 		List<Recipe> recipeLibrary = new ArrayList<Recipe>();
 		while(results.next()) {

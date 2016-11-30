@@ -6,7 +6,7 @@ public class Recipe {
 	
 	private String recipeName;
 	private Long recipeId;
-	//private Long userId;
+	private Long userId;
 	private String description;
 	private String ingredients;
 	private ArrayList<String> steps;
