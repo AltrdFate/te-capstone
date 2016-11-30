@@ -3,21 +3,23 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-
-	<div class="row">
+	<div class="centerpiece">
+	<h3>Create a New User Account</h3>
+	<p class="lead">Start Planning a Healthier You Today.</p>
 		<div class="userForm">
 			<c:url var="formAction" value="/users/new" />
 			<form method="POST" action="${formAction}" id="newUserForm">
-				<label for="username">User Name : </label>
-					<input type="text" id="username" name="username" placeholder="Username"> 
+				<label for="username">Username : </label>
+					<input type="text" id="username" name="username" placeholder="Username" class="form-control"> 
 					<p>
 				<label for="password">Password : </label>
-					<input type="password" id="password" name="password" placeholder="Password"> 
+					<input type="password" id="password" name="password" placeholder="Password" class="form-control"> 
 					<p>
 				<label for="confirmPassword">Confirm Password : </label>
-					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-control">
+					</p>
 					<p>
-				<button type="submit" id="submitNewUser">Create New Account</button>
+				<button type="submit" id="submitNewUser" class="btn btn-primary">Create New Account</button></p>
 			</form>
 		</div>
 		<div class="noteToUser">

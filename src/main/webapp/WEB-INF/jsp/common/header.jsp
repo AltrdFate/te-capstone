@@ -4,18 +4,27 @@
 <html>
 <head>
 <title>Meal Planner-omatic 7000</title>
-<c:url value="/css/bootstrap.min.css" var="bootstrapHref" />
-<c:url value="/css/mealplanner.css" var="cssHref" />
-<link href="stylesheet" href="${bootstrapHref}">
-<link href="stylesheet" href="${cssHref}">
+
+<c:url value="/css/bootstrap.min.css" var="bootstrapUrl" />
+<c:url value="/css/mealplanner.css" var="cssUrl" />
+<link rel="stylesheet" type="text/css" href="${bootstrapUrl}">
+<link rel="stylesheet" type="text/css" href="${cssUrl}">
+
 <script src="/capstone/js/jquery.min.js"></script>
 <script src="/capstone/js/jquery.validate.min.js"></script>
 <script src="/capstone/js/newUserValidation.js"></script>
-<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
+<script
+	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 </head>
 
 <body>
-	<header><h1 class="mainTitle">Family Meal Planner</h1></header>
+<div class="header">
+<div class="title">
+	<header>
+		<p class="lead">mealPlan</p>
+	</header>
+	</div>
+	<div class="nav">
 	<nav>
 		<ul>
 			<c:url var="loginURL" value="/login" />
@@ -24,5 +33,6 @@
 			<li><a href="${signupURL}">Sign up</a></li>
 		</ul>
 	</nav>
-	
-<section class="container-fluid">
+	</div>
+</div>
+	<section>

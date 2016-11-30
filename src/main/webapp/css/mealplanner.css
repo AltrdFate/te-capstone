@@ -1,0 +1,34 @@
+ body {
+	margin: 20px;
+	/* background-image: url('/capstone/img/splash-page-bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white; */
+} 
+
+.centerpiece {
+	width: 350px;
+	margin: auto;
+}
+
+.noteToUser {
+	width: 350px;
+	padding: 30px 0px;
+	text-align: center;
+}
+
+.title {
+	position: relative;
+	display: inline-block;
+}
+
+.nav {
+	position: relative;
+	display: inline-block;
+}
+
+nav li {
+	 list-style-type: none;
+	 display: inline-block;
+	 padding: 0px 20px;
+}
