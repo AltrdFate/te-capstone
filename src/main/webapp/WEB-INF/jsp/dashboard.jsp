@@ -8,7 +8,7 @@
 </div>
 
 <div class="welcomeHeader">
-<h4>Welcome, <c:out value="${param.currentUser}"/>!</h4> 
+<h4>Welcome, <c:out value="${currentUser}"/>!</h4> 
 </div>
 
 <div class="dashboardOptions">

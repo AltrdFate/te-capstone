@@ -3,12 +3,14 @@ package com.techelevator.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.ModelMap;
 
 @Component
 public class JDBCRecipeDAO implements RecipeDAO{
@@ -52,12 +54,11 @@ public class JDBCRecipeDAO implements RecipeDAO{
 //	}
 	
 	@Override
-	public void save(Recipe recipe) {
-		Long id = getNextId();
-		String sqlInsertRecipe = "INSERT INTO recipe(recipe_id, user_id, name, description, ingredients, directions) "
-								+ "VALUES (?, ?, ?, ?, ?, ?);";
-		jdbcTemplate.update(sqlInsertRecipe, id, recipe.getRecipeName(), recipe.getDescription(), recipe.getIngredients(), recipe.getDirections());
-		recipe.setRecipeId(id);
+	public void save(Recipe recipe, String username) {
+		String sqlInsertRecipe = "INSERT INTO recipe(user_id, name, description, ingredients, directions) "
+								+ "VALUES (?, ?, ?, ?, ?);";
+		recipe.setUserId(getUserId(username));
+		jdbcTemplate.update(sqlInsertRecipe, recipe.getUserId(), recipe.getRecipeName(), recipe.getDescription(), recipe.getIngredients(), recipe.getDirections());
 	}
 	
 	private Long getNextId() {
@@ -70,6 +71,18 @@ public class JDBCRecipeDAO implements RecipeDAO{
 			throw new RuntimeException("Something strange happened, unable to select next recipe id from sequence");
 		}
 		return id;
+	}
+	
+	private Long getUserId(String username) {
+		String sqlSelectUserId = "Select user_id From users Where username = ?;";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlSelectUserId, username);
+		Long userId = null;
+		if(result.next()) {
+			userId = result.getLong("user_id");
+		} else {
+			throw new RuntimeException("Something strange happened, find user id");
+		}
+		return userId;
 	}
 
 }

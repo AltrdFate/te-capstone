@@ -7,7 +7,7 @@ Welcome, <c:out value="${currentUser}"/>!
 	<p>Please Enter A Recipe</p>
 	<c:url value="/addRecipe" var="formAction"/>
 	<form method="POST" action="${formAction}">
-			<input type="hidden" id="userId" name="userId" value="${userId}"/>
+
 			<div>
 				<label for="recipeName">Recipe Name:</label>
 				<input type="text" id="recipeName" name="recipeName"/>
