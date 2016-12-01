@@ -1,9 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-
-Welcome, <c:out value="${currentUser}"/>!
-<div>
+<div class="main-box">
 	<p>Please Enter A Recipe</p>
 	<c:url value="/addRecipe" var="formAction"/>
 	<form method="POST" action="${formAction}">

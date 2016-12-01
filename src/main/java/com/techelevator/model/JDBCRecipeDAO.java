@@ -74,13 +74,27 @@ public class JDBCRecipeDAO implements RecipeDAO{
 		return userId;
 	}
 	
-//	private Recipe getRecipeById( Long recipeId) {
-//		Recipe recipe = null;
-//		String sqlSelectRecipeById = "Select * FROM recipe Where recipe_id = ?";
-//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectRecipeById, recipeId);
-//		if(results.next()) {
-//			recipe = 
-//		}
-	//}
+	@Override
+	public Recipe getRecipeById(Long recipeId) {
+		Recipe recipe = null;
+		String sqlSelectRecipeById = "SELECT * FROM recipe WHERE recipe_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectRecipeById, recipeId); 
+		if(results.next()) {
+			recipe = mapRowToRecipe(results);
+		}
+		return recipe;
+	}
+
+	private Recipe mapRowToRecipe(SqlRowSet row) {
+		Recipe recipe = new Recipe();
+		recipe.setRecipeId(row.getLong("recipe_id"));
+		recipe.setRecipeName(row.getString("name"));
+		recipe.setDescription(row.getString("description"));
+		recipe.setIngredients(row.getString("ingredients"));
+		recipe.setDirections(row.getString("directions"));
+		recipe.setUserId(row.getLong("user_id"));
+		return recipe;
+	}
+	
 
 }

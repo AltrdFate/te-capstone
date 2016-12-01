@@ -54,13 +54,7 @@ public class RecipeController {
 	@RequestMapping (path = "/recipeDetails", method = RequestMethod.GET)
 	public String displayRecipeDetailsPage(HttpSession session,
 			ModelMap model, @RequestParam Long recipeId) {
-			List<Recipe> recipe = (List<Recipe>) model.get("recipeLibrary");
-			int i = recipe.indexOf(recipeId);
-			Recipe recipeFound = recipe.get(i);
-			// = recipeLibrary;
-			//recipe.getRecipeId();
-			model.addAttribute("recipe", recipeFound);
-			//Recipe recipe = recipe.getRecipeId();
+			model.addAttribute("recipe", recipeDao.getRecipeById(recipeId));
 		return "recipeDetails";
 	}
 	

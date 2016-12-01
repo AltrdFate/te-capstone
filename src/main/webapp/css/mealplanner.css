@@ -7,7 +7,7 @@
  */
  
 .jumbotron {
-	background-image: url('/capstone/img/splash-page-bg.jpg');
+	background-image: url('/capstone/img/splash-page-bg-2.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 400px;
@@ -43,7 +43,9 @@
 	margin: 20px;
 }
 
-
+.main-box {
+	padding: 30px;	
+}
 
 .centerpiece {
 	width: 350px;

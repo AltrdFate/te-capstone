@@ -8,4 +8,5 @@ public interface RecipeDAO {
 	
 	public void save(Recipe recipe, String username);
 	
+	public Recipe getRecipeById(Long recipeId);
 }
