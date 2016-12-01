@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,34 @@ public class RecipeController {
 	}
 	
 	@RequestMapping (path = "/recipeLibrary", method = RequestMethod.GET) 
-	public String displayRecipeLibraryPage(HttpSession session) {
+	public String displayRecipeLibraryPage(HttpSession session, ModelMap model) {
+			String username = (String) session.getAttribute("currentUser");
+			List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
+			model.put("recipeLibrary", recipeLibrary);
 		return "recipeLibrary";
 	}
+	
+	@RequestMapping (path = "/recipeDetails", method = RequestMethod.GET)
+	public String displayRecipeDetailsPage(HttpSession session,
+			ModelMap model, @RequestParam Long recipeId) {
+			List<Recipe> recipe = (List<Recipe>) model.get("recipeLibrary");
+			int i = recipe.indexOf(recipeId);
+			Recipe recipeFound = recipe.get(i);
+			// = recipeLibrary;
+			//recipe.getRecipeId();
+			model.addAttribute("recipe", recipeFound);
+			//Recipe recipe = recipe.getRecipeId();
+		return "recipeDetails";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

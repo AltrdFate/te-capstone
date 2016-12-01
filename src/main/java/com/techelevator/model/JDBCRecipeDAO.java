@@ -22,36 +22,25 @@ public class JDBCRecipeDAO implements RecipeDAO{
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-/*	@Override
-	public List<Recipe> viewRecipesByUserId(Long id) {
+	@Override
+	public List<Recipe> viewRecipesByUserId(String username) {
 		String sqlSelectRecipesByUserId = "SELECT * FROM recipe WHERE user_id = ?;";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectRecipesByUserId, id);
+		Long userId = getUserId(username);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectRecipesByUserId, userId);
 		List<Recipe> recipeLibrary = new ArrayList<Recipe>();
 		while(results.next()) {
 			Recipe currentRecipe = new Recipe();
-			recipeLibrary.add();
+				currentRecipe.setRecipeId(results.getLong("recipe_id"));
+				currentRecipe.setUserId(results.getLong("user_id"));
+				currentRecipe.setRecipeName(results.getString("name"));
+				currentRecipe.setDescription(results.getString("description"));
+				currentRecipe.setIngredients(results.getString("ingredients"));
+				currentRecipe.setDirections(results.getString("directions"));
+				recipeLibrary.add(currentRecipe);
 		}
-		return null;
-	}*/
-
-	@Override
-	public void addRecipeToLibrary(Recipe recipe) {
-		// TODO Auto-generated method stub
-		
+		return recipeLibrary;
 	}
 
-	@Override
-	public Recipe viewRecipesByUserId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-//	@Override
-//	public void createRecipe(String recipeName, Long recipeId, Long userId, String description, String ingredients,
-//			ArrayList<String> steps) {
-//		// TODO Auto-generated method stub
-//		
-//	}
 	
 	@Override
 	public void save(Recipe recipe, String username) {
@@ -84,5 +73,14 @@ public class JDBCRecipeDAO implements RecipeDAO{
 		}
 		return userId;
 	}
+	
+//	private Recipe getRecipeById( Long recipeId) {
+//		Recipe recipe = null;
+//		String sqlSelectRecipeById = "Select * FROM recipe Where recipe_id = ?";
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectRecipeById, recipeId);
+//		if(results.next()) {
+//			recipe = 
+//		}
+	//}
 
 }
