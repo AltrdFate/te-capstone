@@ -5,8 +5,8 @@
 Welcome, <c:out value="${currentUser}"/>!
 <div>
 	<p>Please Enter A Recipe</p>
-	<form>
-		<c:url value="/addRecipe" var="formAction"/>
+	<c:url value="/addRecipe" var="formAction"/>
+	<form method="POST" action="${formAction}">
 			<input type="hidden" id="userId" name="userId" value="${userId}"/>
 			<div>
 				<label for="recipeName">Recipe Name:</label>
@@ -32,12 +32,6 @@ Welcome, <c:out value="${currentUser}"/>!
 			<button type="submit" id="createRecipeButton" class="btn btn-primary">Submit</button>
 			
 		</form>
-</div>
-	
-	
-	
-	
-	
-	 
+</div> 
 	
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
