@@ -7,27 +7,33 @@
 	<form method="POST" action="${formAction}">
 
 			<div>
-				<label for="recipeName">Recipe Name:</label>
+				<label for="recipeName">Recipe Name:</label><br>
 				<input type="text" id="recipeName" name="recipeName"/>
 			</div>
 			
 			<div>
-				<label for="description">Description</label>
-				<input type="text" id="description" name="description"/>
+				<label for="description">Description</label><br>
+				<input type="text" id="description" name="description" placeholder="Describe your recipe in 140 characters or less."/>
 			</div>
 			
 			<div>
-				<label for="ingredients">Ingredients</label>
-				<input type="text" id="ingredients" name="ingredients" 
-				placeholder="Put each ingredient on its own line."/>
+				<label for="ingredients">Ingredients</label><br>
+				<textarea id="ingredients" name="ingredients" 
+				placeholder="Put each ingredient on its own line.">
+				</textarea>
 			</div>
 			
 			<div>
-				<label for="directions">Directions</label>
-				<input type="text" id="directions" name="directions"
-				placeholder="Put each step on its own line."/>
+				<label for="directions">Directions</label><br>
+				<textarea id="directions" name="directions"
+				placeholder="Put each step on its own line.">
+				
+				</textarea>
 			</div>
+			<br>
+			<p>
 			<button type="submit" id="createRecipeButton" class="btn btn-primary">Submit</button>
+			</p>
 			
 		</form>
 </div> 

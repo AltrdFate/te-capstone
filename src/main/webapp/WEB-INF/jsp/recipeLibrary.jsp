@@ -3,7 +3,8 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 	<div class="main-box">
-		<table>
+	<h2>Recipe Library</h2>
+		<table class="table table-striped">
 			<tr><th>Name</th><th>Description</th><th></th></tr>
 			<c:forEach var="recipe" items="${recipeLibrary}">
 			<c:url value="/recipeDetails?recipeId=${recipe.recipeId}" var="id"/>
