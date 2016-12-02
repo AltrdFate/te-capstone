@@ -38,7 +38,6 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: lightgrey;
-	background-color: #E5E4E2;
 	border-radius: 60px; 
 	margin: 20px;
 }
@@ -81,9 +80,10 @@ nav li {
 	
 }
 
-/* #ingredients, #directions { */
-/* 	height: 200px; */
-/* 	width: 400px; */
-/* 	padding-bottom: 180px; */
+
+#ingredients, #directions {
+	height: 200px;
+	width: 400px;
+	padding-bottom: 180px;
 	
-/* } */
+}

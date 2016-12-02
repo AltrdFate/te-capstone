@@ -27,10 +27,10 @@
 	<div class="nav">
 	<nav>
 		<ul>
-			<c:url var="homepageURL" value="/dashboard"/>
-			<c:url var="logoutURL" value="/login"/>
-			<li><a href="${homepageURL}">Home</a></li>
-			<li><a href="${logoutURL}">Logout</a></li>
+			<c:url var="loginURL" value="/login" />
+			<c:url var="signupURL" value="/users/new" />
+			<li><a href="${loginURL}">Login</a></li>
+			<li><a href="${signupURL}">Sign up</a></li>
 		</ul>
 	</nav>
 	</div>
