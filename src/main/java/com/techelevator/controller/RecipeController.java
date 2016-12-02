@@ -36,9 +36,16 @@ public class RecipeController {
 	@Transactional
 	@RequestMapping(path = "/addRecipe", method = RequestMethod.POST)
 	public String addRecipeToLibrary(ModelMap model,  
-									Recipe recipe, 
+									Recipe recipe,
+									String[] stepArray,
 									HttpSession session) {
 		String username = (String) session.getAttribute("currentUser");
+		String directions = "";
+		for(String s: stepArray) {
+			directions.concat(s);
+		}
+		recipe.setDirections(directions);
+		//String[] fixedEntry = recipe.getDirections();
 		recipeDao.save(recipe, username);
 		return "redirect:/recipeLibrary";
 	}

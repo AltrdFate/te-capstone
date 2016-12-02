@@ -35,7 +35,7 @@ public class JDBCRecipeDAO implements RecipeDAO{
 				currentRecipe.setRecipeName(results.getString("name"));
 				currentRecipe.setDescription(results.getString("description"));
 				currentRecipe.setIngredients(results.getString("ingredients"));
-				currentRecipe.setDirections(results.getString("directions"));
+				//currentRecipe.setDirections(results.getString("directions"));
 				recipeLibrary.add(currentRecipe);
 		}
 		return recipeLibrary;
@@ -91,7 +91,7 @@ public class JDBCRecipeDAO implements RecipeDAO{
 		recipe.setRecipeName(row.getString("name"));
 		recipe.setDescription(row.getString("description"));
 		recipe.setIngredients(row.getString("ingredients"));
-		recipe.setDirections(row.getString("directions"));
+		//recipe.setDirections(row.getString("directions"));
 		recipe.setUserId(row.getLong("user_id"));
 		return recipe;
 	}
