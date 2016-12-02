@@ -25,10 +25,12 @@
 			
 			<div>
 				<label for="directions">Directions</label><br>
-				<textarea id="directions" name="directions"
-				placeholder="Put each step on its own line.">
-				
-				</textarea>
+				<c:forEach var="i" begin="1" end="10">
+					<h5>Step #<c:out value="${i}"/></h5>
+					<textarea id="directions" name="directions"
+					placeholder="Put each step on its own line.">
+					</textarea>
+				</c:forEach>
 			</div>
 			<br>
 			<p>

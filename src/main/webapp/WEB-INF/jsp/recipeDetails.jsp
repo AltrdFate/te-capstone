@@ -11,8 +11,8 @@
 	</p>
 	<p>
 	<h4>Ingredients</h4>
-	<c:set var="ingredients" value="${recipe.ingredients}" />
-	<c:set var="ingredient1" value="${fn:split(ingredients, ' ')}" />
+	<c:set var="ingredients" value="${recipe.ingredients} |" />
+	<c:set var="ingredient1" value="${fn:split(ingredients, '|')}" />
 	
 	<c:set var="test" value = "This is | just a | test"/>
 	<c:set var="test1" value ="${fn:split(test, '|')}"/>
@@ -27,6 +27,7 @@
 	<p>
 	<h4>Directions</h4>
 	<ol>
+		
 		<li><c:out value="${recipe.directions}" /></li>
 	</ol>
 </div>
