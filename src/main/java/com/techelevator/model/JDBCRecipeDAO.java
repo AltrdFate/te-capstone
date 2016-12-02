@@ -34,8 +34,6 @@ public class JDBCRecipeDAO implements RecipeDAO{
 				currentRecipe.setUserId(results.getLong("user_id"));
 				currentRecipe.setRecipeName(results.getString("name"));
 				currentRecipe.setDescription(results.getString("description"));
-				currentRecipe.setIngredients(results.getString("ingredients"));
-				//currentRecipe.setDirections(results.getString("directions"));
 				recipeLibrary.add(currentRecipe);
 		}
 		return recipeLibrary;
@@ -44,10 +42,15 @@ public class JDBCRecipeDAO implements RecipeDAO{
 	
 	@Override
 	public void save(Recipe recipe, String username) {
-		String sqlInsertRecipe = "INSERT INTO recipe(user_id, name, description, ingredients, directions) "
-								+ "VALUES (?, ?, ?, ?, ?);";
+		String sqlInsertRecipe = "INSERT INTO recipe(user_id, name, description) "
+								+ "VALUES (?, ?, ?);";
+		String sqlInsertIngredients = "INSERT INTO ingredients(recipe_id, ingredient_id, ing_description) "
+				+ "VALUES (?, ?, ?);";
+		String sqlInsertSteps = "INSERT INTO directions(recipe_id, step_number, step_description)"
+				+ "VALUES (?, ?, ?);";
 		recipe.setUserId(getUserId(username));
-		jdbcTemplate.update(sqlInsertRecipe, recipe.getUserId(), recipe.getRecipeName(), recipe.getDescription(), recipe.getIngredients(), recipe.getDirections());
+		jdbcTemplate.update(sqlInsertRecipe, recipe.getUserId(), recipe.getRecipeName(), recipe.getDescription());
+		jdbcTemplate.update(sqlInsertIngredients,  )
 	}
 	
 	private Long getNextId() {
@@ -90,11 +93,11 @@ public class JDBCRecipeDAO implements RecipeDAO{
 		recipe.setRecipeId(row.getLong("recipe_id"));
 		recipe.setRecipeName(row.getString("name"));
 		recipe.setDescription(row.getString("description"));
-		recipe.setIngredients(row.getString("ingredients"));
-		//recipe.setDirections(row.getString("directions"));
 		recipe.setUserId(row.getLong("user_id"));
 		return recipe;
 	}
+	
+	
 	
 
 }

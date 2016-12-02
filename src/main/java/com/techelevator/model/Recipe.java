@@ -1,6 +1,6 @@
 package com.techelevator.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Recipe {
 	
@@ -8,8 +8,8 @@ public class Recipe {
 	private Long recipeId;
 	private Long userId;
 	private String description;
-	private String ingredients;
-	private String directions;
+	private List<Ingredients> ingredients;
+	private List<Directions> directions;
 	
 	public Long getRecipeId() {
 		return recipeId;
@@ -24,12 +24,6 @@ public class Recipe {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getIngredients() {
-		return ingredients;
-	}
-	public void setIngredients(String ingredients) {
-		this.ingredients = ingredients;
-	}
 
 	public String getRecipeName() {
 		return recipeName;
@@ -43,12 +37,16 @@ public class Recipe {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public String getDirections() {
+	public List<Ingredients> getIngredients() {
+		return ingredients;
+	}
+	public void setIngredients(List<Ingredients> ingredients) {
+		this.ingredients = ingredients;
+	}
+	public List<Directions> getDirections() {
 		return directions;
 	}
-	public void setDirections(String directions) {
-		
+	public void setDirections(List<Directions> directions) {
 		this.directions = directions;
 	}
-
 }
