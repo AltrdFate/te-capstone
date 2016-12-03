@@ -20,7 +20,6 @@
 			<c:url var="addRecipe" value="/addRecipe"/>
 			<c:url var="viewLibraryURL" value="/recipeLibrary"/>
 			<li><a href="${addRecipe}">Add a Recipe</a></li>
-			<li>Modify a Recipe</li>
 			<li><a href="${viewLibraryURL}">View My Recipe Library</a></li>
 		</ul>
 	</div>

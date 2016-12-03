@@ -20,9 +20,8 @@
 				<label for="ingredients">Ingredients</label><br>
 				<c:forEach var="i" begin="1" end="10">
 					<h5>Ingredient <c:out value="${i}"/></h5>
-					<textarea id="ingredients" name="ingredients" 
-					placeholder="Put each ingredient on its own line.">
-					</textarea>
+					<input type="text" id="ingredients" name="ingredients" 
+					placeholder="Ingredient"/>
 				</c:forEach>
 			</div>
 			
@@ -30,9 +29,8 @@
 				<label for="directions">Directions</label><br>
 				<c:forEach var="i" begin="1" end="10">
 					<h5>Step #<c:out value="${i}"/></h5>
-					<textarea id="directions" name="directions"
-					placeholder="Put each step on its own line.">
-					</textarea>
+					<input type="text" id="directions" name="directions"
+					placeholder="Direction"/>
 				</c:forEach>
 			</div>
 			<br>

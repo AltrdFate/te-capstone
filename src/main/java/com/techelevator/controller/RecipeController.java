@@ -39,12 +39,8 @@ public class RecipeController {
 	@RequestMapping(path = "/addRecipe", method = RequestMethod.POST)
 	public String addRecipeToLibrary(ModelMap model,  
 									Recipe recipe,
-									//String[] directions,
-									//String[] ingredients,
 									HttpSession session) {
 		String username = (String) session.getAttribute("currentUser");
-		//recipe.setDirections(directions);
-		//recipe.setIngredients(ingredients);
 		recipeDao.save(recipe, username);
 		return "redirect:/recipeLibrary";
 	}
@@ -61,12 +57,30 @@ public class RecipeController {
 	public String displayRecipeDetailsPage(HttpSession session,
 			ModelMap model, @RequestParam Long recipeId) {
 			model.addAttribute("recipe", recipeDao.getRecipeById(recipeId));
+			model.addAttribute("ingredients", recipeDao.getIngredientsByRecipeId(recipeId));
+			model.addAttribute("directions", recipeDao.getDirectionsByRecipeId(recipeId));
 			return "recipeDetails";
 	}
 	
+	@RequestMapping(path="/modifyRecipeDetails", method = RequestMethod.GET) 
+	public String displayModifyRecipeDetailsPage(HttpSession session, 
+												ModelMap model, 
+												@RequestParam Long recipeId) {
+		model.addAttribute("recipe", recipeDao.getRecipeById(recipeId));
+		model.addAttribute("ingredients", recipeDao.getIngredientsByRecipeId(recipeId));
+		model.addAttribute("directions", recipeDao.getDirectionsByRecipeId(recipeId));
+		return "modifyRecipeDetails";
+	}
 	
-	
-	
+	@Transactional
+	@RequestMapping(path="/modifyRecipeDetails", method = RequestMethod.POST)
+	public String processRecipeModifications(HttpSession session,
+											 ModelMap model, 
+											 Recipe recipe, 
+											 @RequestParam Long recipeId) {
+		recipeDao.modifyRecipe(recipe, recipeId);
+		return "redirect:/recipeDetails?recipeId="+recipeId;
+	}
 	
 	
 	
