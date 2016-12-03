@@ -155,15 +155,19 @@ public class JDBCRecipeDAO implements RecipeDAO {
 			}
 		}
 		
-//		String[] directions = recipe.getDirections();
-//		for(String d : directions) {
-//			if (d != null) {
-//				String sqlUpdateDirections = "UPDATE directions SET step_description = ? WHERE recipe_id=?;";
-//				jdbcTemplate.update(sqlUpdateDirections, d, recipeId);
-//			}
-//		}
+		ArrayList<Long> directionIdList = getDirectionsId(recipeId);
+		int counter2 = 0;
+		String[] directions = recipe.getDirections();
+		for (Long directionId : directionIdList) {
+			if (directionId != null) {
+				String sqlUpdateDirections = "UPDATE directions SET step_description=? WHERE recipe_id = ? AND step_id = ?";
+				jdbcTemplate.update(sqlUpdateDirections, directions[counter2], recipeId, directionId);
+				counter2++;
+			}
+		}
 		return recipe;
 	}
+
 	
 	public ArrayList<Long> getIngredientId(Long recipeId) {
 		ArrayList<Long> ingIdList = new ArrayList<>();
@@ -185,9 +189,5 @@ public class JDBCRecipeDAO implements RecipeDAO {
 		return directionIdList;
 	}
 
-	@Override
-	public ArrayList<String> getDirectionsByStepId(Long recipeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }

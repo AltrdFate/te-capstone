@@ -13,8 +13,6 @@ public interface RecipeDAO {
 	
 	public ArrayList<String> getIngredientsByRecipeId(Long recipeId);
 	
-	public ArrayList<String> getDirectionsByStepId(Long recipeId);
-	
 	public ArrayList<String> getDirectionsByRecipeId(Long recipeId);
 	
 	public Recipe modifyRecipe(Recipe recipe, Long recipeId);
