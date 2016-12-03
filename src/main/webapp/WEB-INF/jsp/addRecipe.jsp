@@ -18,16 +18,19 @@
 			
 			<div>
 				<label for="ingredients">Ingredients</label><br>
-				<textarea id="ingredients" name="ingredients" 
-				placeholder="Put each ingredient on its own line.">
-				</textarea>
+				<c:forEach var="i" begin="1" end="10">
+					<h5>Ingredient <c:out value="${i}"/></h5>
+					<textarea id="ingredients" name="ingredients" 
+					placeholder="Put each ingredient on its own line.">
+					</textarea>
+				</c:forEach>
 			</div>
 			
 			<div>
-				<label for="stepArray">Directions</label><br>
+				<label for="directions">Directions</label><br>
 				<c:forEach var="i" begin="1" end="10">
 					<h5>Step #<c:out value="${i}"/></h5>
-					<textarea id="stepArray" name="stepArray"
+					<textarea id="directions" name="directions"
 					placeholder="Put each step on its own line.">
 					</textarea>
 				</c:forEach>

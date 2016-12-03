@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techelevator.model.Directions;
+import com.techelevator.model.Ingredients;
 import com.techelevator.model.Recipe;
 import com.techelevator.model.RecipeDAO;
 
@@ -37,8 +39,12 @@ public class RecipeController {
 	@RequestMapping(path = "/addRecipe", method = RequestMethod.POST)
 	public String addRecipeToLibrary(ModelMap model,  
 									Recipe recipe,
+									//String[] directions,
+									//String[] ingredients,
 									HttpSession session) {
 		String username = (String) session.getAttribute("currentUser");
+		//recipe.setDirections(directions);
+		//recipe.setIngredients(ingredients);
 		recipeDao.save(recipe, username);
 		return "redirect:/recipeLibrary";
 	}

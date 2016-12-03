@@ -25,7 +25,7 @@ CREATE TABLE recipe (
 	rec_description varchar(300)
 );
 
-ALTER TABLE recipe ADD CONSTRAINT fk_recipe_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
+ALTER TABLE recipe ADD CONSTRAINT fk_users_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 CREATE TABLE ingredients (
 	ingredient_id INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_ingredients_ingredient_id'),
@@ -33,7 +33,7 @@ CREATE TABLE ingredients (
 	ing_description varchar(100)
 );
 
-ALTER TABLE ingredients ADD CONSTRAINT fk_ingredients_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id);
+ALTER TABLE ingredients ADD CONSTRAINT fk_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id);
 
 CREATE TABLE directions (
 	step_id 	INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_directions_step_id'),
@@ -42,6 +42,6 @@ CREATE TABLE directions (
 	step_description varchar(200)
 );
 
-ALTER TABLE directions ADD CONSTRAINT fk_directions_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id);
+ALTER TABLE directions ADD CONSTRAINT fk_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id);
 
 COMMIT;

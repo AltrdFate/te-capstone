@@ -33,7 +33,7 @@ public class JDBCRecipeDAO implements RecipeDAO{
 				currentRecipe.setRecipeId(results.getLong("recipe_id"));
 				currentRecipe.setUserId(results.getLong("user_id"));
 				currentRecipe.setRecipeName(results.getString("name"));
-				currentRecipe.setDescription(results.getString("description"));
+				currentRecipe.setDescription(results.getString("rec_description"));
 				recipeLibrary.add(currentRecipe);
 		}
 		return recipeLibrary;
@@ -42,18 +42,36 @@ public class JDBCRecipeDAO implements RecipeDAO{
 	
 	@Override
 	public void save(Recipe recipe, String username) {
-		String sqlInsertRecipe = "INSERT INTO recipe(user_id, name, description) "
-								+ "VALUES (?, ?, ?);";
-		String sqlInsertIngredients = "INSERT INTO ingredients(recipe_id, ingredient_id, ing_description) "
-				+ "VALUES (?, ?, ?);";
-		String sqlInsertSteps = "INSERT INTO directions(recipe_id, step_number, step_description)"
-				+ "VALUES (?, ?, ?);";
+		Long recipeId = getNextRecipeId();
+		String sqlInsertRecipe = "INSERT INTO recipe(recipe_id, user_id, name, rec_description) "
+								+ "VALUES (?, ?, ?, ?);";
 		recipe.setUserId(getUserId(username));
-		jdbcTemplate.update(sqlInsertRecipe, recipe.getUserId(), recipe.getRecipeName(), recipe.getDescription());
-		jdbcTemplate.update(sqlInsertIngredients,  )
+		
+		jdbcTemplate.update(sqlInsertRecipe, recipeId, recipe.getUserId(), recipe.getRecipeName(), recipe.getDescription());
+		
+		recipe.setRecipeId(recipeId);
+		String[] ingredients = recipe.getIngredients();
+		for(String i : ingredients) {
+			if(i != null) {
+				String sqlInsertIngredients = "INSERT INTO ingredients(recipe_id, ing_description) "
+											+ "VALUES (?, ?);";
+				jdbcTemplate.update(sqlInsertIngredients, recipe.getRecipeId(), i);
+			}
+		}
+		
+		String[] directions = recipe.getDirections();
+		int counter = 0;
+		for(String d: directions) {
+			if(d != null) {
+				String sqlInsertSteps = "INSERT INTO directions(recipe_id, step_number, step_description)"
+											+ "VALUES (?, ?, ?);";
+				jdbcTemplate.update(sqlInsertSteps, recipe.getRecipeId(), counter + 1, d);
+				counter++;
+			}
+		}
 	}
 	
-	private Long getNextId() {
+	private Long getNextRecipeId() {
 		String sqlSelectNextId = "SELECT NEXTVAL('seq_recipe_recipe_id')";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectNextId);
 		Long id = null;
@@ -96,8 +114,4 @@ public class JDBCRecipeDAO implements RecipeDAO{
 		recipe.setUserId(row.getLong("user_id"));
 		return recipe;
 	}
-	
-	
-	
-
 }
