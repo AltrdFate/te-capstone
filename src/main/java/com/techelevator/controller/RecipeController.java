@@ -81,11 +81,4 @@ public class RecipeController {
 		recipeDao.modifyRecipe(recipe, recipeId);
 		return "redirect:/recipeDetails?recipeId="+recipeId;
 	}
-	
-	
-	
-	
-	
-	
-	
 }

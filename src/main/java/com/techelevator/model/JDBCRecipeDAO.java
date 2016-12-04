@@ -148,7 +148,7 @@ public class JDBCRecipeDAO implements RecipeDAO {
 		int counter = 0;
 		String[] ingredients = recipe.getIngredients();
 		for (Long ingredientId : ingredientIdList) {
-			if (ingredientId != null) {
+			if (ingredientId != null && counter < ingredients.length) {
 				String sqlUpdateIngredients = "UPDATE ingredients SET ing_description=? WHERE recipe_id=? AND ingredient_id=?;";
 				jdbcTemplate.update(sqlUpdateIngredients, ingredients[counter], recipeId, ingredientId);
 				counter++;
@@ -159,8 +159,8 @@ public class JDBCRecipeDAO implements RecipeDAO {
 		int counter2 = 0;
 		String[] directions = recipe.getDirections();
 		for (Long directionId : directionIdList) {
-			if (directionId != null) {
-				String sqlUpdateDirections = "UPDATE directions SET step_description=? WHERE recipe_id = ? AND step_id = ?";
+			if (directionId != null && counter2 < directions.length) {
+				String sqlUpdateDirections = "UPDATE directions SET step_description=? WHERE recipe_id = ? AND step_id = ?;";
 				jdbcTemplate.update(sqlUpdateDirections, directions[counter2], recipeId, directionId);
 				counter2++;
 			}
@@ -171,7 +171,7 @@ public class JDBCRecipeDAO implements RecipeDAO {
 	
 	public ArrayList<Long> getIngredientId(Long recipeId) {
 		ArrayList<Long> ingIdList = new ArrayList<>();
-		String sqlSelectIngredientId = "SELECT ingredient_id FROM ingredients WHERE recipe_id=?";
+		String sqlSelectIngredientId = "SELECT ingredient_id FROM ingredients WHERE recipe_id=? ORDER BY ingredient_id ASC;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectIngredientId, recipeId);
 		while(results.next()) {
 			ingIdList.add(results.getLong("ingredient_id"));
@@ -181,7 +181,7 @@ public class JDBCRecipeDAO implements RecipeDAO {
 	
 	public ArrayList<Long> getDirectionsId(Long recipeId) {
 		ArrayList<Long> directionIdList = new ArrayList<>();
-		String sqlSelectDirectionId = "SELECT step_id FROM directions WHERE recipe_id=?";
+		String sqlSelectDirectionId = "SELECT step_id FROM directions WHERE recipe_id=? ORDER BY step_id ASC;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectDirectionId, recipeId);
 		while(results.next()) {
 			directionIdList.add(results.getLong("step_id"));
