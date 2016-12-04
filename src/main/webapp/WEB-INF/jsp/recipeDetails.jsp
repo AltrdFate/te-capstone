@@ -9,6 +9,15 @@
 	<p class="lead">
 		<c:out value="${recipe.description}" />
 	</p>
+	<div>
+		<ul class="detailsNav">
+			<c:url value="/modifyRecipeDetails?recipeId=${recipe.recipeId}"
+				var="modifyURL" />
+			<li><a href="${modifyURL}">Modify Recipe</a></li>
+			<li>|</li>
+			<li>Add to Meal Plan</li>
+		</ul>
+	</div>
 	<p>
 	<h4>Ingredients</h4>
 	<ul>

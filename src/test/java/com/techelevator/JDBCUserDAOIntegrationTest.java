@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.techelevator.model.JDBCUserDAO;
+import com.techelevator.model.Recipe;
 
 public class JDBCUserDAOIntegrationTest extends DAOIntegrationTest {
 	
@@ -15,9 +16,9 @@ public class JDBCUserDAOIntegrationTest extends DAOIntegrationTest {
 	}
 
 	@Test
-	public void createNewUser_inserts_a_user_into_database() {
-		dao.saveUser("leonmelnock", "password");
-		String result = "Select username From users Where password = 'password';";
+	public void can_save_a_new_recipe_to_database() {
+		//dao.saveUser(username, password);
+		
 	}
 
 }

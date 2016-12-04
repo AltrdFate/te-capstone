@@ -16,13 +16,14 @@
 		<c:forEach items="${ingredients}" var="ingredient">
 			<p><input type="text" id="ingredients" name="ingredients" value="${ingredient}"/><p>
 		</c:forEach>
-		
+		+Add Additional Ingredient
 		<h4>Directions</h4>
 		<ol>
 		<c:forEach items="${directions}" var="direction">
 			<li><p><input type="text" id="directions" name="directions" value="${direction}"/></li>
 		</c:forEach>
 		</ol>
+		<p>+Add Additional Direction</p>
 		<button type="submit" id="editRecipeButton" class="btn btn-primary">Submit Changes</button>
 	</form>
 </div>
