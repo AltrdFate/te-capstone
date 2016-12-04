@@ -6,7 +6,7 @@
 	<h1>Modify Recipe Details</h1>
 	<c:url value="/modifyRecipeDetails?recipeId=${param.recipeId}"
 		var="formAction" />
-	<form method="POST" action="${formAction}">
+	<form id="recipeForm" method="POST" action="${formAction}">
 		<label for="recipeName">Recipe Name:</label> <input type="text"
 			id="recipeName" name="recipeName" value="${recipe.recipeName}" />
 		<p>
@@ -37,5 +37,7 @@
 		<button type="submit" id="editRecipeButton" class="btn btn-primary">Submit
 			Changes</button>
 	</form>
+	<c:url value="/recipeDetails?recipeId=${recipe.recipeId}" var="recipeDetailsURL"/>
+	<a href="${recipeDetailsURL}">Cancel</a>
 </div>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
