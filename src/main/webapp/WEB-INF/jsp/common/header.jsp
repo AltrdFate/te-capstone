@@ -13,6 +13,7 @@
 <script src="/capstone/js/jquery.min.js"></script>
 <script src="/capstone/js/jquery.validate.min.js"></script>
 <script src="/capstone/js/newUserValidation.js"></script>
+<script src="/capstone/js/modifyRecipe.js"></script>
 <script
 	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
 </head>

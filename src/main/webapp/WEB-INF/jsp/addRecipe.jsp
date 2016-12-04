@@ -18,19 +18,17 @@
 			
 			<div>
 				<label for="ingredients">Ingredients</label><br>
-				<c:forEach var="i" begin="1" end="10">
-					<h5>Ingredient <c:out value="${i}"/></h5>
-					<input type="text" id="ingredients" name="ingredients" 
-					placeholder="Ingredient"/>
+				<c:forEach var="i" begin="1" end="3">
+					<p><input type="text" id="ingredients" name="ingredients" 
+					placeholder="Ingredient"/></p>
 				</c:forEach>
 			</div>
 			
 			<div>
 				<label for="directions">Directions</label><br>
-				<c:forEach var="i" begin="1" end="10">
-					<h5>Step #<c:out value="${i}"/></h5>
-					<input type="text" id="directions" id="steps" name="directions"
-					placeholder="Direction"/>
+				<c:forEach var="i" begin="1" end="3">
+					<p><input type="text" id="directions" id="steps" name="directions"
+					placeholder="Direction"/><p>
 				</c:forEach>
 			</div>
 			<br>

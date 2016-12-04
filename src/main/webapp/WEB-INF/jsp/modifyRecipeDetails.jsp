@@ -3,8 +3,9 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 <div class="main-box">
-<h1>Modify Recipe Details</h1>
-<c:url value="/modifyRecipeDetails?recipeId=${param.recipeId}" var="formAction"/>
+	<h1>Modify Recipe Details</h1>
+	<c:url value="/modifyRecipeDetails?recipeId=${param.recipeId}"
+		var="formAction" />
 	<form method="POST" action="${formAction}">
 		<label for="recipeName">Recipe Name:</label> <input type="text"
 			id="recipeName" name="recipeName" value="${recipe.recipeName}" />
@@ -14,17 +15,27 @@
 		<p>
 		<h4>Ingredients</h4>
 		<c:forEach items="${ingredients}" var="ingredient">
-			<p><input type="text" id="ingredients" name="ingredients" value="${ingredient}"/><p>
+			<p>
+				<input type="text" id="ingredients" name="ingredients"
+					value="${ingredient}" />
+			<p>
 		</c:forEach>
-		+Add Additional Ingredient
+		<div id="extraIngredients"></div>
+		<div id="addIngredient">+Add Ingredient</div>
 		<h4>Directions</h4>
-		<ol>
-		<c:forEach items="${directions}" var="direction">
-			<li><p><input type="text" id="directions" name="directions" value="${direction}"/></li>
-		</c:forEach>
+		<ol id="extraDirections">
+			<c:forEach items="${directions}" var="direction">
+				<li><p>
+						<input type="text" id="directions" name="directions"
+							value="${direction}" /></li>
+			</c:forEach>
+			
 		</ol>
-		<p>+Add Additional Direction</p>
-		<button type="submit" id="editRecipeButton" class="btn btn-primary">Submit Changes</button>
+		
+		<p><div id="addDirection">+Add Direction</div></p>
+		<p>
+		<button type="submit" id="editRecipeButton" class="btn btn-primary">Submit
+			Changes</button>
 	</form>
 </div>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
