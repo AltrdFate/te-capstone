@@ -103,3 +103,13 @@ nav li {
 .formField {
 	padding: 20px;
 };
+
+.dayPlan {
+	display: inline-block;
+	position: relative;
+}
+.meals {
+	display: inline-block;
+	position: relative;
+	padding: 30px;
+}

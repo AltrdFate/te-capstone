@@ -31,10 +31,16 @@ public class MealPlanController {
 	@RequestMapping(path="/createMealplan", method=RequestMethod.GET)
 	public String displayCreateAMealPlanPage(HttpSession session,
 											ModelMap model) {
-		//session.getAttribute("currentUser");
 		String username = (String) session.getAttribute("currentUser");
 		List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
 		model.put("recipes", recipeLibrary);
 		return "createMealplan";
+	}
+	
+	@RequestMapping(path="/createMealplan", method=RequestMethod.POST)
+	public String addMealPlanToLibrary(HttpSession session, 
+										ModelMap model) {
+		
+		return "redirect:/viewMealplan";
 	}
 }
