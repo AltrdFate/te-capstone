@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public interface MealPlanDAO {
 	
-	public void createMealPlan(ArrayList<Long> recipeIds);
+	public void createMealPlan(MealPlan mealPlan, String username);
 	
-	public void createMeal(Meal meal);
+	public void createMeal(Meal meal, String username);
 
 }
