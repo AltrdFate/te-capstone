@@ -26,10 +26,16 @@ public class UserController {
 		this.userDAO = userDAO;
 	}
 	
+	@RequestMapping(path="/", method=RequestMethod.GET)
+	public String displayLoginPageAsHomePage() {
+		return "login";
+	}
+	
 	@RequestMapping(path="/users/new", method=RequestMethod.GET)
 	public String displayNewUserForm() {
 			return "newUser";
 	}
+	
 	@Transactional
 	@RequestMapping(path="/users/new", method=RequestMethod.POST) 
 	public String createUser(@RequestParam String username, @RequestParam String password) {

@@ -8,17 +8,17 @@
 	<c:url value="/addRecipe" var="formAction"/>
 	<form id ="recipeForm" method="POST" action="${formAction}">
 
-			<div>
+			<div class="formField">
 				<label for="recipeName">Recipe Name:</label><br>
 				<input type="text" id="recipeName" name="recipeName" placeholder="Recipe Name"/>
 			</div>
 			
-			<div>
+			<div class="formField">
 				<label for="description">Description:</label><br>
 				<input type="text" id="description" name="description" placeholder="Describe your recipe in 140 characters or less."/>
 			</div>
 			
-			<div>
+			<div class="formField">
 				<label for="ingredients">Ingredients:</label><br>
 				<c:forEach var="i" begin="1" end="3">
 					<p><input type="text" id="ingredients" name="ingredients" 
@@ -27,8 +27,7 @@
 				<div id="extraIngredients"></div>
 				<div id="addIngredient">+Add Ingredient</div><p>
 			</div>
-			
-			<div>
+			<div class="formField">
 				<label for="directions">Directions:</label><br>
 				<ol id ="extraDirections"><c:forEach var="i" begin="1" end="3">
 					<p><li><input type="text" id="directions" id="steps" name="directions"

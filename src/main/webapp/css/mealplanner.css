@@ -95,11 +95,11 @@ nav li {
 	padding: 0px 20px 0px 0px;
 }
 
+#addIngredient, #addDirection {
+	font-weight: bold;
+	color: blue;
+}
 
-
-/* #ingredients, #directions { */
-/* 	height: 200px; */
-/* 	width: 400px; */
-/* 	padding-bottom: 180px; */
-	
-/* } */
+.formField {
+	padding: 20px;
+};
