@@ -133,24 +133,24 @@ INSERT INTO ingredients (recipe_id, ing_description) VALUES (1, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (1, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (1, '');
 
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Cow');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Cheese');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Bun');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Pickle');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Onion');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Tomato');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, '');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Flour');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Eggs');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Sugar');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Milk');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Baking Powder');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Butter');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, 'Syrup');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (2, '');
 
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Cow');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Cheese');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Bun');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Pickle');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Lettuce');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Tomatoes');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Peppers');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Cucumbers');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Onion');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Tomato');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, '');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Ranch Dressing');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, 'Croutons');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (3, '');
@@ -168,10 +168,10 @@ INSERT INTO ingredients (recipe_id, ing_description) VALUES (4, '');
 
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Flour');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Olive Oil');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Sugar');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Milk');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Baking Powder');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Powdered Frog');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Water');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Pizza Sauce');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Mozzarella Cheese');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, 'Pepperoni');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, '');
 INSERT INTO ingredients (recipe_id, ing_description) VALUES (5, '');
@@ -237,6 +237,32 @@ INSERT INTO meal (user_id, meal_description) VALUES (1, 'Burger and Mac n cheese
 INSERT INTO meal (user_id, meal_description) VALUES (1, 'Waffles, Salad and Pizza');
 INSERT INTO meal (user_id, meal_description) VALUES (1, 'Mac n cheese');
 INSERT INTO meal (user_id, meal_description) VALUES (1, 'Feast');
+
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (3,1);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (5,1);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (1,2);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (4,2);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (2,3);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (3,3);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (5,3);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (4,4);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (1,5);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (2,5);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (3,5);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (4,5);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (5,5);
+
+INSERT INTO mealplan (user_id, mealplan_description) VALUES (1,'This set of five weekday meals features comfort food at its best');
+
+INSERT INTO meal_mealplan (meal_id, mealplan_id) VALUES (1,1);
+INSERT INTO meal_mealplan (meal_id, mealplan_id) VALUES (2,1);
+INSERT INTO meal_mealplan (meal_id, mealplan_id) VALUES (3,1);
+INSERT INTO meal_mealplan (meal_id, mealplan_id) VALUES (4,1);
+INSERT INTO meal_mealplan (meal_id, mealplan_id) VALUES (5,1);
+
+
+
+
 
 
 
