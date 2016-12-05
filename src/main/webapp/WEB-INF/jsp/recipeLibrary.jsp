@@ -4,6 +4,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 <div class="main-box">
 	<h2>Recipe Library</h2>
+	<p class="lead">Access all your recipes in one, easy-to-use location.</p>
 	<table class="table table-striped">
 		<tr>
 			<th>Name</th>

@@ -3,12 +3,6 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 <div class="main-box">
-	<h1>
-		<c:out value="${recipe.recipeName}" />
-	</h1>
-	<p class="lead">
-		<c:out value="${recipe.description}" />
-	</p>
 	<div>
 		<ul class="detailsNav">
 			<c:url value="/modifyRecipeDetails?recipeId=${recipe.recipeId}"
@@ -18,6 +12,12 @@
 			<li>Add to Meal Plan</li>
 		</ul>
 	</div>
+	<h1>
+		<c:out value="${recipe.recipeName}" />
+	</h1>
+	<p class="lead">
+		<c:out value="${recipe.description}" />
+	</p>
 	<p>
 	<h4>Ingredients</h4>
 	<ul>

@@ -45,8 +45,8 @@
 .main-box {
 	padding: 30px;
 	position: relative;
-	top: 50%;
-	left: 25%;
+	margin: auto;
+	width: 800px;
 	
 	
 }
@@ -83,6 +83,10 @@ nav li {
 	width: 400px;
 	padding-bottom: 80px;
 	
+}
+.detailsNav {
+		margin-left: -37px;
+		font-weight:bold;
 }
 
 .detailsNav li {
