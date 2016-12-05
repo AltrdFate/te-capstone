@@ -59,13 +59,11 @@ public class JDBCRecipeDAO implements RecipeDAO {
 		}
 
 		String[] directions = recipe.getDirections();
-		int counter = 0;
 		for (String d : directions) {
 			if (d != null) {
-				String sqlInsertSteps = "INSERT INTO directions(recipe_id, step_number, step_description)"
-						+ "VALUES (?, ?, ?);";
-				jdbcTemplate.update(sqlInsertSteps, recipe.getRecipeId(), counter + 1, d);
-				counter++;
+				String sqlInsertSteps = "INSERT INTO directions(recipe_id, step_description)"
+						+ "VALUES (?, ?);";
+				jdbcTemplate.update(sqlInsertSteps, recipe.getRecipeId(), d);
 			}
 		}
 	}
