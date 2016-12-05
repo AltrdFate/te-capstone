@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
+
 <div class="main-box">
 <h2>Add a Recipe</h2>
 	<p class="lead">Please use the form below to add a new recipe to your library. Don't worry if you don't have all the information handy - you can always modify the details later.</p>
@@ -13,12 +14,12 @@
 			</div>
 			
 			<div>
-				<label for="description">Description</label><br>
+				<label for="description">Description:</label><br>
 				<input type="text" id="description" name="description" placeholder="Describe your recipe in 140 characters or less."/>
 			</div>
 			
 			<div>
-				<label for="ingredients">Ingredients</label><br>
+				<label for="ingredients">Ingredients:</label><br>
 				<c:forEach var="i" begin="1" end="3">
 					<p><input type="text" id="ingredients" name="ingredients" 
 					placeholder="Ingredient"/></p>
@@ -28,7 +29,7 @@
 			</div>
 			
 			<div>
-				<label for="directions">Directions</label><br>
+				<label for="directions">Directions:</label><br>
 				<ol id ="extraDirections"><c:forEach var="i" begin="1" end="3">
 					<p><li><input type="text" id="directions" id="steps" name="directions"
 					placeholder="Direction"/></li><p>
