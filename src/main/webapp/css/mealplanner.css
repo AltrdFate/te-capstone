@@ -43,7 +43,12 @@
 }
 
 .main-box {
-	padding: 30px;	
+	padding: 30px;
+	position: relative;
+	top: 50%;
+	left: 25%;
+	
+	
 }
 
 .centerpiece {
