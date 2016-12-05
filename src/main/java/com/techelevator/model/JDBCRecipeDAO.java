@@ -52,18 +52,29 @@ public class JDBCRecipeDAO implements RecipeDAO {
 		recipe.setRecipeId(recipeId);
 		String[] ingredients = recipe.getIngredients();
 		for (String i : ingredients) {
-			if (i != null) {
 				String sqlInsertIngredients = "INSERT INTO ingredients(recipe_id, ing_description) " + "VALUES (?, ?);";
 				jdbcTemplate.update(sqlInsertIngredients, recipe.getRecipeId(), i);
+		}
+		int ingredientRowsToAdd = 25 - ingredients.length;
+		String sqlInsertEmptyIngredients = "INSERT INTO ingredients(recipe_id, ing_description) " + "VALUES (?, ?);";
+		if(ingredients.length < 25) {
+			for(int i = 1; i <= ingredientRowsToAdd; i++) {
+				jdbcTemplate.update(sqlInsertEmptyIngredients, recipe.getRecipeId(), "");
 			}
 		}
 
 		String[] directions = recipe.getDirections();
 		for (String d : directions) {
-			if (d != null) {
 				String sqlInsertSteps = "INSERT INTO directions(recipe_id, step_description)"
 						+ "VALUES (?, ?);";
 				jdbcTemplate.update(sqlInsertSteps, recipe.getRecipeId(), d);
+		}
+		int directionRowsToAdd = 25 - directions.length;
+		String sqlInsertEmptyDirections = "INSERT INTO directions(recipe_id, step_description)"
+				+ "VALUES (?, ?);";
+		if(ingredients.length < 25) {
+			for(int i = 1; i <= directionRowsToAdd; i++) {
+				jdbcTemplate.update(sqlInsertEmptyDirections, recipe.getRecipeId(), "");
 			}
 		}
 	}
@@ -150,7 +161,7 @@ public class JDBCRecipeDAO implements RecipeDAO {
 				String sqlUpdateIngredients = "UPDATE ingredients SET ing_description=? WHERE recipe_id=? AND ingredient_id=?;";
 				jdbcTemplate.update(sqlUpdateIngredients, ingredients[counter], recipeId, ingredientId);
 				counter++;
-			}
+			} 
 		}
 		
 		ArrayList<Long> directionIdList = getDirectionsId(recipeId);
