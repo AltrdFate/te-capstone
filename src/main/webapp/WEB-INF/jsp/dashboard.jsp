@@ -29,7 +29,8 @@
 	<div class="optionDetails">
 		<h3>My Meal Plan</h3>
 		<ul>
-			<li>Create a Meal Plan</li>
+			<c:url var = "createMealplan" value="/createMealplan"/>
+			<li><a href = "${createMealplan}">Create a Meal Plan</a></li>
 			<li>View My Meal Plan</li>
 			<li>Modify My Meal Plan</li>
 		</ul>
