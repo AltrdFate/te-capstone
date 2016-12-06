@@ -28,13 +28,6 @@
 		
 		<div class="nav">
 			<nav>
-<!-- 				<ul> -->
-<%-- 					<c:url var="homepageURL" value="/dashboard" /> --%>
-<%-- 					<c:url var="logoutURL" value="/login" /> --%>
-<%-- 					<li><a href="${homepageURL}">Home</a></li> --%>
-<%-- 					<li><a href="${logoutURL}">Logout</a></li> --%>
-<!-- 				</ul> -->
-				
 				<div class="dropdown">
 					My Recipes <span class="caret"></span>
 					<div class="dropdown-content">
@@ -59,17 +52,19 @@
 					<div class="dropdown-content">
 						View Grocery List<p>
 						Modify Grocery List
-						
 					</div>
 				</div>
 				<div class="dropdown">
-				<c:url var="homepageURL" value="/dashboard" />
-				<a href="${homepageURL}">Home</a>
+					<c:url var="homepageURL" value="/dashboard" />
+					<a href="${homepageURL}">Home</a>
 				</div>
 				
 			</nav>
 		</div>
+		<div class="logoutButton">
+			<c:url var="logoutURL" value="/login"/>
+			<a href="${logoutURL}"><button type="button" class="btn btn-outline-primary">Logout</button></a>
+		</div>
 	</div>
 
-
-	<section>
+<section>

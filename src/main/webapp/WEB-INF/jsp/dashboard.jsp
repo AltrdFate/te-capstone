@@ -13,13 +13,12 @@
 	</div>
 
 </div>
+	<a name="getStarted"></a>
 <div class="main-box-dashboard">
 	<div class="welcomeHeader">
-		<a name="getStarted"></a>
+	
 		<h2>
-			Welcome,
-			<c:out value="${currentUser}" />
-			!
+			Welcome, <c:out value="${currentUser}" />!
 		</h2>
 		<p class="lead">Getting and staying healthy starts with a good
 			plan.</p>
@@ -40,20 +39,14 @@
 			</div>
 
 			<div class="optionDetails">
-				<c:url var="addRecipe" value="/addRecipe" />
-				<c:url var="viewLibraryURL" value="/recipeLibrary" />
-				<h5>
-					<a href="${addRecipe}">&gt;Add a Recipe</a>
-				</h5>
-				<!-- 				Add a recipe to your library. -->
-				<p>
-				<h5>
-					<a href="${viewLibraryURL}">&gt;View My Recipe Library</a>
-				</h5>
-				<!-- 				Access your recipes in your library.<br> -->
-				<!-- 				Make any edits to a recipe.<br> -->
-				<!-- 				View the details of your recipe. -->
+			Where it all starts: create and manage your recipes using your own personalized library.
+			
 			</div>
+			<br>
+			<p>
+				<c:url var="addRecipe" value="/addRecipe" />
+				<a href="${addRecipe}"><button type="button" id="loginUser" class="btn btn-primary">Get Started</button></a>
+					</p>
 		</div>
 		<div class="option">
 			<div class="optionImg">

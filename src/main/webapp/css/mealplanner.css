@@ -7,6 +7,11 @@ html, body {
 	min-height: 100%;
 }
 
+section {
+	padding-bottom: 75px;
+	padding-top: 69px;
+}
+
 .jumbotron {
 	background-image: url('/capstone/img/splash-page-bg.jpg');
 	background-size: cover;
@@ -26,6 +31,9 @@ html, body {
 	padding: 20px 20px 0px 20px;
 	background-color: #333;
 	color: white;
+	position: fixed;
+	width: 100%;
+	z-index:1000;
 }
 
 .header a {
@@ -76,7 +84,7 @@ html, body {
 
 .optionDetails {
 	text-align: center;
-	 line-height: 2;
+/* 	 line-height: 2; */
 }
 
 .main-box {
@@ -194,4 +202,11 @@ nav li {
 
 .dropdown:hover .dropdown-content {
 	display: block;
+}
+
+.logoutButton {
+	float: right;
+	right: 0;
+	position: relative;
+	display: inline-block;
 }
