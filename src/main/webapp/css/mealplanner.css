@@ -1,23 +1,31 @@
-/*  body {
-	margin: 20px;
-	background-image: url('/capstone/img/splash-page-bg.jpg');
-	background-size: cover;
-	background-repeat: no-repeat; 
+body {
+	background-color:#f7f7f7;
 } 
- */
+
  
 .jumbotron {
 	background-image: url('/capstone/img/splash-page-bg.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 400px;
+	height: 700px;
 	text-align: center;
 	color: white;
 	text-shadow: 2px 2px 15px #000000;
 }
 
+.jumboHeading {
+	margin-top: 190px;
+	margin-bottom: 330px;	
+}
+
 .header {
-	margin: 20px 20px 0px 20px;
+	padding: 20px 20px 0px 20px;
+	background-color: #333;
+	color: white;
+}
+
+.header a {
+	color: white;
 }
 
 .welcomeHeader{
@@ -38,7 +46,7 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: lightgrey;
-	border-radius: 60px; 
+	/* 	border-radius: 60px;  */
 	margin: 20px;
 }
 
