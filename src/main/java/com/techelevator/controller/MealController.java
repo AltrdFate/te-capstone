@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.techelevator.model.RecipeDAO;
 
 @Controller
-@SessionAttributes
+@SessionAttributes("currentUser")
 public class MealController {
 
 	
