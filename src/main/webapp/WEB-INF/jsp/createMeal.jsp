@@ -10,9 +10,24 @@
 	<form id ="mealForm" method="POST" action="${formAction}">
 
 			<div class="formField">
-				<label for="recipeName">Recipe Name:</label><br>
-				<input type="text" id="recipeName" name="recipeName" placeholder="Recipe Name"/>
+				<label for="mealName">Meal Name:</label><br>
+				<input type="text" id="mealName" name="mealDescription" placeholder="Recipe Name"/>
 			</div>
+			<select name="recipeIds" id="recipeChoice">
+				<c:forEach var="recipe" items="${recipes}">
+					<option value="${recipe.recipeId}">${recipe.recipeName}</option>
+				</c:forEach>
+				<option value="" selected>None</option>
+			</select><br> +Add a Recipe
+				
+			<select name="recipeIds" id="recipeChoice">
+				<c:forEach var="recipe" items="${recipes}">
+					<option value="${recipe.recipeId}">${recipe.recipeName}</option>
+				</c:forEach>
+				<option value="" selected>None</option>
+			</select><br> +Add a Recipe
+		<button style="" id="submitMeal" class="btn btn-primary">Submit</button>
+				
 	</form>
 </div>
 
