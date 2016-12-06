@@ -6,6 +6,6 @@ public interface MealPlanDAO {
 	
 	public void createMealPlan(MealPlan mealPlan, String username);
 	
-	public void createMeal(Meal meal, String username);
+	public void createMeal(MealPlan mealPlan, Meal meal, String username);
 
 }
