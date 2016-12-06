@@ -1,8 +1,12 @@
-body {
+html, body {
 	background-color:#f7f7f7;
+	height: 100%;
 } 
 
- 
+.container { 
+	min-height: 100%;
+}
+
 .jumbotron {
 	background-image: url('/capstone/img/splash-page-bg.jpg');
 	background-size: cover;
@@ -102,6 +106,7 @@ body {
 .title {
 	position: relative;
 	display: inline-block;
+	padding-right: 20px;
 }
 
 .nav {
@@ -157,14 +162,36 @@ nav li {
 }
 
 .footer {
+	position: fixed;
+	height: 60px;
+	bottom: 0;
+	width: 100%;
 	text-align: center;
 	color: white;
 	background-color: #333;
-	height: 60px;
-	vertical-align: middle;
 }
 
 .footerContent {
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+	color: white;
+	padding: 0px 30px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #595959;
+	min-width: 175px;
+	line-height: 2;
+	padding: 15px;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
 }
