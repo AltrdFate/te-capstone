@@ -17,15 +17,13 @@
 <div class="welcomeHeader">
 <a name="getStarted"></a>
 	<h4>
-		Welcome,
-		<c:out value="${currentUser}" />
-		!
+		Welcome, <c:out value="${currentUser}" />!
 	</h4>
 </div>
 
 <div class="dashboardOptions">
 	<div class="option">
-		<div class="optionImg"></div>
+<!-- 		<div class="optionImg"><img src="/capstone/img/recipeIcon.png" alt="Recipe Icon"/></div> -->
 		<div class="optionDetails">
 			<h3>My Recipes</h3>
 			<ul>
@@ -43,7 +41,7 @@
 			<ul>
 				<c:url var="createMealplan" value="/createMealplan" />
 				<c:url var="createMeal" value="/createMeal"/>
-				<li><a href=${createMealURL}">Create a Meal</a></li>
+				<li><a href="${createMealURL}">Create a Meal</a></li>
 				<li><a href="${createMealplan}">Create a Meal Plan</a></li>
 				<li>View My Meal Plan</li>
 				<li>Modify My Meal Plan</li>
