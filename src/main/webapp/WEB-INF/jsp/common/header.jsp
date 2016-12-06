@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Meal Planner-omatic 7000</title>
+<title>mealPlan : Start Planning a Healthier You Today</title>
 
 <c:url value="/css/bootstrap.min.css" var="bootstrapUrl" />
 <c:url value="/css/mealplanner.css" var="cssUrl" />

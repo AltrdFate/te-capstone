@@ -30,11 +30,13 @@ body {
 
 .welcomeHeader{
 	margin: 20px 10px 20px 20px;
+	text-align:center;
 }
 
 .dashboardOptions {
 	padding: 0px 50px;
 	margin: auto;
+	text-align: center;
 }
 
 .option {
@@ -52,8 +54,25 @@ body {
 	vertical-align:top;
 }
 
+.optionHeader {
+	text-align:center;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.optionImg {
+	text-align: center;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
 .optionImg img {
 	width: 175px;
+}
+
+.optionDetails {
+	text-align: center;
+	 line-height: 2;
 }
 
 .main-box {
@@ -61,8 +80,12 @@ body {
 	position: relative;
 	margin: auto;
 	width: 800px;
-	
-	
+}
+
+.main-box-dashboard {
+	padding: 30px;
+	position: relative;
+	margin: auto;
 }
 
 .centerpiece {
@@ -126,4 +149,22 @@ nav li {
 	display: inline-block;
 	position: relative;
 	padding: 30px;
+}
+
+.dashboardDescription {
+	width: 400px;
+	margin: auto;
+}
+
+.footer {
+	text-align: center;
+	color: white;
+	background-color: #333;
+	height: 60px;
+	vertical-align: middle;
+}
+
+.footerContent {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
