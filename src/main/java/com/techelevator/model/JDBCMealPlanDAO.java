@@ -20,14 +20,16 @@ public class JDBCMealPlanDAO implements MealPlanDAO{
 	}
 	
 	@Override
-	public void createMeal(Meal meal, String username) {
+	public void createMeal(MealPlan mealPlan, Meal meal, String username) {
 		Long mealId = getNextMealId();
 		Long userId = getUserId(username);
 		String sqlInsertMeal = "INSERT into meal(meal_id, user_id, meal_description)"
 				+ " VALUES(?, ?, ?);";
 		jdbcTemplate.update(sqlInsertMeal, mealId, userId, meal.getMealDescription());
 		
-		String sqlInsert
+		String sqlInsertToMeal_Mealplan = "INSERT into meal_mealplan(meal_id, mealplan_id)"
+				+ " VALUES(?, ?);";
+		jdbcTemplate.update(sqlInsertMeal, mealId, mealPlan.getMealPlanId());
 	}
 
 	private Long getNextMealId() {
