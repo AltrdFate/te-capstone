@@ -1,8 +1,17 @@
-body {
+html, body {
 	background-color:#f7f7f7;
+	height: 100%;
 } 
 
- 
+.container { 
+	min-height: 100%;
+}
+
+section {
+	padding-bottom: 75px;
+	padding-top: 69px;
+}
+
 .jumbotron {
 	background-image: url('/capstone/img/splash-page-bg.jpg');
 	background-size: cover;
@@ -22,6 +31,9 @@ body {
 	padding: 20px 20px 0px 20px;
 	background-color: #333;
 	color: white;
+	position: fixed;
+	width: 100%;
+	z-index:1000;
 }
 
 .header a {
@@ -72,7 +84,7 @@ body {
 
 .optionDetails {
 	text-align: center;
-	 line-height: 2;
+/* 	 line-height: 2; */
 }
 
 .main-box {
@@ -102,6 +114,7 @@ body {
 .title {
 	position: relative;
 	display: inline-block;
+	padding-right: 20px;
 }
 
 .nav {
@@ -157,14 +170,43 @@ nav li {
 }
 
 .footer {
+	position: fixed;
+	height: 60px;
+	bottom: 0;
+	width: 100%;
 	text-align: center;
 	color: white;
 	background-color: #333;
-	height: 60px;
-	vertical-align: middle;
 }
 
 .footerContent {
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+	color: white;
+	padding: 0px 30px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #595959;
+	min-width: 175px;
+	line-height: 2;
+	padding: 15px;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.logoutButton {
+	float: right;
+	right: 0;
+	position: relative;
+	display: inline-block;
 }
