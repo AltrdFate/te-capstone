@@ -41,7 +41,7 @@
 			<ul>
 				<c:url var="createMealplan" value="/createMealplan" />
 				<c:url var="createMeal" value="/createMeal"/>
-				<li><a href="${createMealURL}">Create a Meal</a></li>
+				<li><a href="${createMeal}">Create a Meal</a></li>
 				<li><a href="${createMealplan}">Create a Meal Plan</a></li>
 				<li>View My Meal Plan</li>
 				<li>Modify My Meal Plan</li>
