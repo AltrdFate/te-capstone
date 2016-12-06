@@ -49,6 +49,7 @@
 			</div>
 		</div>
 		<button style="" id="submitMealPlan" class="btn btn-primary">Submit</button>
-	</form>
+		</form>
 </div>
+
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
