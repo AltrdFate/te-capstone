@@ -23,7 +23,7 @@
 
 <div class="dashboardOptions">
 	<div class="option">
-<!-- 		<div class="optionImg"><img src="/capstone/img/recipeIcon.png" alt="Recipe Icon"/></div> -->
+	<div class="optionImg"><img src="/capstone/img/recipeIcon.png" alt="Recipe Icon"/></div>
 		<div class="optionDetails">
 			<h3>My Recipes</h3>
 			<ul>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div class="option">
-		<div class="optionImg"></div>
+		<div class="optionImg"><img src="/capstone/img/mealPlanIcon.png" alt="Meal Plan Icon"/></div>
 		<div class="optionDetails">
 			<h3>My Meal Plan</h3>
 			<ul>
@@ -49,7 +49,7 @@
 		</div>
 	</div>
 	<div class="option">
-		<div class="optionImg"></div>
+		<div class="optionImg"><img src="/capstone/img/groceryListIcon.png" alt="Grocery List Icon"/></div>
 		<div class="optionDetails">
 			<h3>My Grocery List</h3>
 			<ul>

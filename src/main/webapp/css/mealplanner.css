@@ -33,14 +33,15 @@ body {
 }
 
 .dashboardOptions {
-	margin: 0px 50px;
+	padding: 0px 50px;
+	margin: auto;
 }
 
 .option {
 	position: relative;
 	display: inline-block;
 	width: 275px;
-	height: 250px;
+	height: 350px;
 	vertical-align: top;
 	padding: 20px;
 	/* 	border-style: solid;
@@ -48,10 +49,11 @@ body {
 	border-color: lightgrey;
 	border-radius: 60px;  */
 	margin: 20px;
+	vertical-align:top;
 }
 
-.option img {
-	width: 250px;
+.optionImg img {
+	width: 175px;
 }
 
 .main-box {
