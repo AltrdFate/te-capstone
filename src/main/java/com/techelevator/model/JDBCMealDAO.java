@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
@@ -27,13 +29,16 @@ public class JDBCMealDAO implements MealDAO {
 		Long userId = getUserId(username);
 		String sqlInsertMeal = "INSERT INTO meal(meal_id, user_id, meal_description) "
 				+ "VALUES (?, ?, ?);";
-		String test = meal.getMealDescription();
 		jdbcTemplate.update(sqlInsertMeal, mealId, userId, meal.getMealDescription());
 		
-		for(Long recipeId: meal.getRecipeIds()) {
+		ArrayList<Long> recipeIds = meal.getRecipeIds();
+		Set<Long> recipeSet = new HashSet<>(recipeIds);
+		for(Long recipeId: recipeSet) {
 			String sqlInsertRecipe_Meal = "INSERT INTO recipe_meal(recipe_id, meal_id) "
 					+ "VALUES (?, ?);";
-			jdbcTemplate.update(sqlInsertRecipe_Meal, recipeId, mealId);
+			if(recipeId != null) {
+				jdbcTemplate.update(sqlInsertRecipe_Meal, recipeId, mealId);
+			}
 		}
 	}
 
@@ -59,6 +64,35 @@ public class JDBCMealDAO implements MealDAO {
 			throw new RuntimeException("Something strange happened, unable to select next recipe id from sequence");
 		}
 		return id;
+	}
+
+	@Override
+	public String displayMealName(Long mealId) {
+		String sqldisplayMeal = "SELECT meal_description FROM meal WHERE meal_id = ?;";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqldisplayMeal, mealId);
+		String mealName = null;
+		if (result.next()) {
+			 mealName = result.getString("meal_description");
+		} else {
+			throw new RuntimeException("Something strange happened, unable to select next recipe id from sequence");
+		}
+		return mealName;
+	}
+
+	@Override
+	public ArrayList<Recipe> displayRecipesInMeal(Long mealId) {
+		String sqldisplayRecipesInMeal = "SELECT name, r.recipe_id FROM recipe r JOIN recipe_meal rm ON r.recipe_id = rm.recipe_id "
+				+ "JOIN meal m ON rm.meal_id = m.meal_id WHERE m.meal_id = ?;";		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqldisplayRecipesInMeal, mealId);
+		Meal meal = new Meal();
+		ArrayList<Recipe> recipes = new ArrayList<>();
+		while(results.next()) {
+			Recipe recipe = new Recipe();
+			recipe.setRecipeName(results.getString("name"));
+			recipe.setRecipeId(results.getLong("recipe_id"));
+			recipes.add(recipe);
+		}
+		return recipes;
 	}
 
 }

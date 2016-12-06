@@ -13,21 +13,21 @@
 				<label for="mealName">Meal Name:</label><br>
 				<input type="text" id="mealName" name="mealDescription" placeholder="Recipe Name"/>
 			</div>
+			<div id="mealForm">
+			<c:forEach var="i" begin="1" end="5">
 			<select name="recipeIds" id="recipeChoice">
 				<c:forEach var="recipe" items="${recipes}">
 					<option value="${recipe.recipeId}">${recipe.recipeName}</option>
 				</c:forEach>
 				<option value="" selected>None</option>
-			</select><br> +Add a Recipe
-				
-			<select name="recipeIds" id="recipeChoice">
-				<c:forEach var="recipe" items="${recipes}">
-					<option value="${recipe.recipeId}">${recipe.recipeName}</option>
-				</c:forEach>
-				<option value="" selected>None</option>
-			</select><br> +Add a Recipe
-		<button style="" id="submitMeal" class="btn btn-primary">Submit</button>
-				
+			</select>
+			</c:forEach>
+			</div><br>
+			<div id="addRecipeToMeal"></div>
+			<br><p>
+			<button type="submit" id="createRecipeButton" class="btn btn-primary">Submit</button>
+			</p>	
+			
 	</form>
 </div>
 

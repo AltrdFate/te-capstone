@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.Meal;
@@ -50,5 +52,33 @@ public class MealController {
 		//model.put("recipes", recipeLibrary);
 		mealDao.createMeal(meal, username);
 		return "redirect:/createMeal";
+	}
+	
+	@Transactional
+	@RequestMapping(path="/modifyMeal", method=RequestMethod.GET)
+	public String showModifyMealPage(HttpSession session,
+										ModelMap model,
+										Meal meal, @RequestParam Long mealId) {
+		String username = (String) session.getAttribute("currentUser");
+		List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
+		model.put("recipes", recipeLibrary);
+		//model.put("recipes", recipeLibrary);
+		String mealName = mealDao.displayMealName(mealId);
+		ArrayList<Recipe> recipes = mealDao.displayRecipesInMeal(mealId);
+		model.put("mealName", mealName);
+		model.put("recipeNames", recipes);
+		return "modifyMeal";
+	}
+	
+	@Transactional
+	@RequestMapping(path="/modifyMeal", method=RequestMethod.POST)
+	public String showModifiedMealPage(HttpSession session,
+										ModelMap model,
+										Meal meal) {
+		String username = (String) session.getAttribute("currentUser");
+		//List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
+		//model.put("recipes", recipeLibrary);
+		mealDao.createMeal(meal, username);
+		return "redirect:/createMealPlan";
 	}
 }

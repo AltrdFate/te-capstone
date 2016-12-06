@@ -34,4 +34,18 @@ $(document).ready(function() {
 		}
 	});
 	
+//	var counterRecipe = 0;
+//	$("#addRecipeToMeal").click(function(){
+//		if (counterRecipe <= 4) {
+//			$("<div class='mealForm'><select name='recipeIds' id='recipeChoice'><c:forEach var='recipe' items='${recipes}'>" +
+//					"<option value='${recipe.recipeId}'>${recipe.recipeName}</option>" +
+//				"</c:forEach>" +
+//				"<option value='' selected>None</option>").appendTo("#mealForm");
+//			counterRecipe++;
+//		}
+//		else {
+//			alert("Join mealPlan PREMIUM to add more than 25 recipes to one meal.")
+//		}
+//	});
+	
 });	
