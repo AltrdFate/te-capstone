@@ -17,11 +17,13 @@
 <div class="welcomeHeader">
 	<a name="getStarted"></a>
 	<h2>
-		Welcome,
-		<c:out value="${currentUser}" />!
+		Welcome, <c:out value="${currentUser}" />!
 	</h2>
 	<p class="lead">Getting and staying healthy starts with a good
 		plan.</p>
+		<div class="dashboardDescription">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+	</div>
 </div>
 
 <div class="dashboardOptions">
