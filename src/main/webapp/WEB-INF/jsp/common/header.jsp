@@ -41,7 +41,8 @@
 				<div class="dropdown">
 					My Meal Plan <span class="caret"></span>
 					<div class="dropdown-content">
-							Create Meal<p>
+					<c:url var="createMealURL" value="/createMeal"/>
+						<a href="${createMealURL}">Create Meal</a><p>
 							Create Meal Plan<br>
 							View Meal Plan Library
 					</div>
@@ -50,8 +51,8 @@
 				<div class="dropdown">
 					My Grocery List <span class="caret"></span>
 					<div class="dropdown-content">
-						View Grocery List<p>
-						Modify Grocery List
+					<c:url var="groceryListURL" value="/groceryList"/>
+						<a href="${groceryListURL}">View Grocery List</a><p>
 					</div>
 				</div>
 				<div class="dropdown">
