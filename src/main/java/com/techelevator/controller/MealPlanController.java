@@ -59,13 +59,13 @@ public class MealPlanController {
 										@RequestParam Long mealPlanId) {
 		MealPlan mealPlan = mealPlanDao.getMealPlan(mealPlanId);
 		model.put("mealPlan", mealPlan);
-			 ArrayList<Long> mealIds= mealPlan.getMealId();
-			 ArrayList<String> mealNames = new ArrayList<>();
-			 for(Long mealId:mealIds){
-			 String mealName = mealDao.displayMealName(mealId);
-			 mealNames.add(mealName);
-		 }
-		 model.put("mealNames", mealNames);
+		ArrayList<Long> mealIds= mealPlan.getMealId();
+		ArrayList<String> mealNames = new ArrayList<>();
+		for(Long mealId:mealIds){
+			String mealName = mealDao.displayMealName(mealId);
+			mealNames.add(mealName);
+		}
+		model.put("mealNames", mealNames);
 		return "mealPlanDetails";
 	}
 	
