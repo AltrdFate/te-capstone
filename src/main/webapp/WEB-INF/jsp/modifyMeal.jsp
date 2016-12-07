@@ -17,15 +17,19 @@
 				<input type="text" id="mealName" name="mealDescription" value="${mealName}" placeholder="Meal Name"/>
 	</div>
 	<c:forEach var="i" begin="1" end="5">
+		<p>	${recipesInMeal[i-1].recipeName}</p>
 		<select name="recipeIds" id="recipeChoice">
-				
-			<c:forEach var="recipe" items="${recipes}">
+			<c:forEach var="recipe" items="${recipeLibrary}">
 				<option value="${recipe.recipeId}" >${recipe.recipeName}</option>
 			</c:forEach>
-				<option value="">None</option>
-				
+				<option value="" selected>None</option>
 			</select>
 			</c:forEach>
+			<br>
+			<br>
+			<p>
+			<button type="submit" id="modifyMealButton" class="btn btn-primary">Submit</button>
+			</p>
 	</form>
 </div>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

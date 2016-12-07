@@ -94,5 +94,21 @@ public class JDBCMealDAO implements MealDAO {
 		}
 		return recipes;
 	}
-
+	
+	@Override
+	public void modifyMeal(Meal meal, Long mealId) {
+		 String sqlUpdateMeal = "UPDATE meal SET meal_description = ? "
+		 		+ "WHERE meal_id = ?;";
+		jdbcTemplate.update(sqlUpdateMeal, meal.getMealDescription(), mealId);
+		
+		String sqlDeleteMeal = "Delete From recipe_meal Where meal_id = ?;";
+		jdbcTemplate.update(sqlDeleteMeal, mealId);
+		ArrayList<Long> recipeIdList = meal.getRecipeIds();
+		for (Long recipeId : recipeIdList) {
+			if (recipeId != null) {
+				String sqlUpdateRecipes = "Insert Into recipe_meal(recipe_id, meal_id) Values(?, ?);";
+				jdbcTemplate.update(sqlUpdateRecipes, recipeId, mealId);
+			} 
+		}
+	}
 }

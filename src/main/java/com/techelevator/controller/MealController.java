@@ -61,24 +61,21 @@ public class MealController {
 										Meal meal, @RequestParam Long mealId) {
 		String username = (String) session.getAttribute("currentUser");
 		List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
-		model.put("recipes", recipeLibrary);
-		//model.put("recipes", recipeLibrary);
+		model.put("recipeLibrary", recipeLibrary);
 		String mealName = mealDao.displayMealName(mealId);
 		ArrayList<Recipe> recipes = mealDao.displayRecipesInMeal(mealId);
 		model.put("mealName", mealName);
-		model.put("recipeNames", recipes);
+		model.put("recipesInMeal", recipes);
 		return "modifyMeal";
 	}
 	
 	@Transactional
 	@RequestMapping(path="/modifyMeal", method=RequestMethod.POST)
-	public String showModifiedMealPage(HttpSession session,
+	public String submitModifiedMealPage(HttpSession session,
 										ModelMap model,
-										Meal meal) {
+										Meal meal, @RequestParam Long mealId) {
 		String username = (String) session.getAttribute("currentUser");
-		//List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
-		//model.put("recipes", recipeLibrary);
-		mealDao.createMeal(meal, username);
+		mealDao.modifyMeal(meal, mealId);
 		return "redirect:/createMealPlan";
 	}
 }

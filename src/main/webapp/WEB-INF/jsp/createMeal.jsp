@@ -23,10 +23,11 @@
 			</select>
 			</c:forEach>
 			</div><br>
-			<div id="addRecipeToMeal"></div>
-			<br><p>
-			<button type="submit" id="createRecipeButton" class="btn btn-primary">Submit</button>
-			</p>	
+			<div id="addRecipeToMeal"> +Add a Recipe</div>
+			<br>
+			<p>
+			<button type="submit" id="createMealButton" class="btn btn-primary">Submit</button>
+			</p>
 			
 	</form>
 </div>

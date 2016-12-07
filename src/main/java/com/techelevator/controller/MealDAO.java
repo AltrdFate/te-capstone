@@ -13,5 +13,7 @@ public interface MealDAO {
 	public String displayMealName(Long mealId);
 	
 	public ArrayList<Recipe> displayRecipesInMeal(Long mealId);
+	
+	public void modifyMeal(Meal meal, Long mealId);
 
 }
