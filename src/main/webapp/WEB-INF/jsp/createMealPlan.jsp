@@ -9,7 +9,7 @@
 		plan. Don't worry if you don't have all the information handy - you
 		can always modify the details later.</p>
 
-	<c:url value="/createMealplan" var="formAction" />
+	<c:url value="/createMealPlan" var="formAction" />
 	<form id="mealPlanForm" method="POST" action="${formAction}">
 
 		<div>
@@ -21,32 +21,74 @@
 		<div>
 			<h3>Monday</h3>
 			<div class="meals">
-				<h4>Breakfast</h4>
-				<select name="recipeId" id="recipeChoice">
-					<c:forEach var="recipe" items="${recipes}">
-						<option value="${recipe.recipeId}">${recipe.recipeName}</option>
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
 					<option value="" selected>None</option>
-				</select><br> +Add a Recipe
+				</select><br> 
 			</div>
-
-
+<div>
+			<h3>Tuesday</h3>
 			<div class="meals">
-				<h4>Lunch</h4>
-				<select name="recipeChoice" id="recipeChoice">
-					<c:forEach var="recipe" items="${recipes}">
-						<option value="${recipe.recipeId}">${recipe.recipeName}</option>
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-				</select><br> +Add a Recipe
+					<option value="" selected>None</option>
+				</select><br> 
 			</div>
+			
+			<h3>Wednesday</h3>
 			<div class="meals">
-				<h4>Dinner</h4>
-				<select name="recipeChoice" id="recipeChoice">
-					<c:forEach var="recipe" items="${recipes}">
-						<option value="${recipe.recipeId}">${recipe.recipeName}</option>
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-				</select><br> +Add a Recipe
+					<option value="" selected>None</option>
+				</select><br> 
 			</div>
+			
+			<h3>Thursday</h3>
+			<div class="meals">
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
+					</c:forEach>
+					<option value="" selected>None</option>
+				</select><br> 
+			</div>
+			
+			<h3>Friday</h3>
+			<div class="meals">
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
+					</c:forEach>
+					<option value="" selected>None</option>
+				</select><br> 
+			</div>
+			
+			<h3>Saturday</h3>
+			<div class="meals">
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
+					</c:forEach>
+					<option value="" selected>None</option>
+				</select><br> 
+			</div>
+			
+			<h3>Sunday</h3>
+			<div class="meals">
+				<select name="mealId" id="mealId">
+					<c:forEach var="meal" items="${meals}">
+						<option value="${meal.mealId}">${meal.mealDescription}</option>
+					</c:forEach>
+					<option value="" selected>None</option>
+				</select><br> 
+			</div>
+			
 		</div>
 		<button style="" id="submitMealPlan" class="btn btn-primary">Submit</button>
 		</form>

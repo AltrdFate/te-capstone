@@ -11,8 +11,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import com.techelevator.controller.MealDAO;
-
 @Component
 public class JDBCMealDAO implements MealDAO {
 	
@@ -111,4 +109,21 @@ public class JDBCMealDAO implements MealDAO {
 			} 
 		}
 	}
+	
+	@Override
+	public ArrayList<Meal> viewAllMealsByUserId(String username) {
+		String sqlSelectAllMeals = "SELECT * FROM meal WHERE user_id = ?;";
+		Long userId = getUserId(username);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllMeals, userId);
+		ArrayList<Meal> allMeals =  new ArrayList<Meal>();
+		while(results.next()) {
+			Meal meal = new Meal();
+			meal.setMealDescription(results.getString("meal_description"));
+			meal.setMealId(results.getLong("meal_id"));
+			meal.setUserId(userId);
+			allMeals.add(meal);
+		}
+		return allMeals;
+	}
+	
 }

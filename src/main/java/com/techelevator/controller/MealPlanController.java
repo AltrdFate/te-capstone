@@ -11,12 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.Meal;
+import com.techelevator.model.MealDAO;
 import com.techelevator.model.MealPlan;
 import com.techelevator.model.MealPlanDAO;
-import com.techelevator.model.Recipe;
 import com.techelevator.model.RecipeDAO;
 
 @Controller
@@ -24,33 +25,55 @@ import com.techelevator.model.RecipeDAO;
 public class MealPlanController {
 	
 	private MealPlanDAO mealPlanDao;
+	private MealDAO mealDao;
 	private RecipeDAO recipeDao;
 	
 	@Autowired
-	public MealPlanController(MealPlanDAO mealPlanDao, RecipeDAO recipeDao) {
+	public MealPlanController(MealPlanDAO mealPlanDao, MealDAO mealDao, RecipeDAO recipeDao) {
 		this.mealPlanDao = mealPlanDao;
+		this.mealDao = mealDao;
 		this.recipeDao = recipeDao;
 	}
 	
-	@RequestMapping(path="/createMealplan", method=RequestMethod.GET)
+	@RequestMapping(path="/createMealPlan", method=RequestMethod.GET)
 	public String displayCreateAMealPlanPage(HttpSession session,
 											ModelMap model) {
 		String username = (String) session.getAttribute("currentUser");
-		List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
-		model.put("recipes", recipeLibrary);
+		List<Meal> mealLibrary = mealDao.viewAllMealsByUserId(username);
+		model.put("meals", mealLibrary);
 		return "createMealPlan";
 	}
 	
 	@Transactional
-	@RequestMapping(path="/createMealplan", method=RequestMethod.POST)
+	@RequestMapping(path="/createMealPlan", method=RequestMethod.POST)
 	public String addMealPlanToLibrary(HttpSession session, 
-										ModelMap model, MealPlan mealPlan,
-										Meal meal, ArrayList<Long> recipeId) {
+										ModelMap model, MealPlan mealPlan) {
 		String username = (String) session.getAttribute("currentUser");
-		model.addAttribute(mealPlan);
-		model.addAttribute(meal);
 		mealPlanDao.createMealPlan(mealPlan, username);
-		mealPlanDao.createMeal(mealPlan, meal, username);
-		return "redirect:/viewMealplan";
+		return "redirect:/mealPlanDetails";
+	}
+	
+	@RequestMapping(path="/mealPlanDetails", method=RequestMethod.GET)
+	public String displayMealPlanDetails(HttpSession session,
+										ModelMap model,
+										@RequestParam Long mealPlanId) {
+		MealPlan mealPlan = mealPlanDao.getMealPlan(mealPlanId);
+		model.put("mealPlan", mealPlan);
+			 ArrayList<Long> mealIds= mealPlan.getMealId();
+			 ArrayList<String> mealNames = new ArrayList<>();
+			 for(Long mealId:mealIds){
+			 String mealName = mealDao.displayMealName(mealId);
+			 mealNames.add(mealName);
+		 }
+		 model.put("mealNames", mealNames);
+		return "mealPlanDetails";
+	}
+	
+	@RequestMapping(path="/mealPlanLibrary", method=RequestMethod.GET)
+	public String displayMealPlanLibraryPage(HttpSession session, ModelMap model) {
+		String username = (String) session.getAttribute("currentUser");
+		ArrayList<MealPlan> mealPlanList = mealPlanDao.getAllMealPlansByUserId(username);
+		model.put("mealPlanList", mealPlanList);
+		return "mealPlanLibrary";
 	}
 }

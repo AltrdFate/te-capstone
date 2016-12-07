@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.Meal;
+import com.techelevator.model.MealDAO;
 import com.techelevator.model.Recipe;
 import com.techelevator.model.RecipeDAO;
 
@@ -51,7 +52,7 @@ public class MealController {
 		//List<Recipe> recipeLibrary = recipeDao.viewRecipesByUserId(username);
 		//model.put("recipes", recipeLibrary);
 		mealDao.createMeal(meal, username);
-		return "redirect:/createMeal";
+		return "redirect:/mealLibrary";
 	}
 	
 	@Transactional
@@ -76,6 +77,30 @@ public class MealController {
 										Meal meal, @RequestParam Long mealId) {
 		String username = (String) session.getAttribute("currentUser");
 		mealDao.modifyMeal(meal, mealId);
-		return "redirect:/createMealPlan";
+		return "redirect:/mealLibrary";
+	}
+	
+	@RequestMapping(path="/mealLibrary", method=RequestMethod.GET)
+	public String displayMealLibraryPage(HttpSession session,
+										ModelMap model) {
+		String username = (String) session.getAttribute("currentUser");
+		ArrayList<Meal> meals = mealDao.viewAllMealsByUserId(username);
+		model.put("meals", meals);
+		return "mealLibrary";
+	}
+	
+	@RequestMapping(path="/mealDetails", method=RequestMethod.GET)
+	public String displayMealDetailsPage(HttpSession session,
+										ModelMap model,
+										@RequestParam Long mealId) {
+//		String username = (String) session.getAttribute("currentUser");
+		String meal = mealDao.displayMealName(mealId);
+		model.put("meal", meal);
+		
+		
+		ArrayList<Recipe> recipes = mealDao.displayRecipesInMeal(mealId);
+		model.put("recipes", recipes);
+		
+		return "mealDetails";
 	}
 }

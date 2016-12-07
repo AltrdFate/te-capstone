@@ -1,10 +1,7 @@
-package com.techelevator.controller;
+package com.techelevator.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.techelevator.model.Meal;
-import com.techelevator.model.Recipe;
 
 public interface MealDAO {
 	
@@ -15,5 +12,7 @@ public interface MealDAO {
 	public ArrayList<Recipe> displayRecipesInMeal(Long mealId);
 	
 	public void modifyMeal(Meal meal, Long mealId);
+	
+	public ArrayList<Meal> viewAllMealsByUserId(String username);
 
 }

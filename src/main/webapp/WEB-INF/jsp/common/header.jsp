@@ -39,22 +39,26 @@
 				</div>
 				
 				<div class="dropdown">
-					My Meal Plan <span class="caret"></span>
+					My Meals <span class="caret"></span>
 					<div class="dropdown-content">
 					<c:url var="createMealURL" value="/createMeal"/>
 						<a href="${createMealURL}">Create Meal</a><p>
-							Create Meal Plan<br>
-							View Meal Plan Library
+					<c:url var="mealLibraryURL" value="/mealLibrary"/>
+						<a href="${mealLibraryURL}">View Meal Library</a>
 					</div>
 				</div>
 				
 				<div class="dropdown">
-					My Grocery List <span class="caret"></span>
+					My Meal Plan <span class="caret"></span>
 					<div class="dropdown-content">
-					<c:url var="groceryListURL" value="/groceryList"/>
-						<a href="${groceryListURL}">View Grocery List</a><p>
+					<c:url var="createMealPlanURL" value="/createMealPlan" />
+							<a href="${createMealPlanURL}">Create Meal Plan</a><br>
+							<c:url var="mealPlanLibraryURL" value="/mealPlanLibrary"/>
+							<a href="${mealPlanLibraryURL}">View Meal Plan Library</a>
 					</div>
 				</div>
+				
+				
 				<div class="dropdown">
 					<c:url var="homepageURL" value="/dashboard" />
 					<a href="${homepageURL}">Home</a>
