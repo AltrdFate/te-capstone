@@ -15,4 +15,6 @@ public interface MealDAO {
 	
 	public ArrayList<Meal> viewAllMealsByUserId(String username);
 
+	public void insertEmptyMeal(String username);
+
 }
