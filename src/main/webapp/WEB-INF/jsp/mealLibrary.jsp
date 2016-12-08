@@ -15,9 +15,9 @@
 	<c:forEach items="${meals}" var="meal">
 		<tr>
 		<td><c:out value="${meal.mealDescription}" /></td>
-		<td><c:url value="mealDetails?mealId=${mealPlan.mealPlanId}" var="viewMealDetailsURL"/>
+		<td><c:url value="mealDetails?mealId=${meal.mealId}" var="viewMealDetailsURL"/>
 		<a href="${viewMealDetailsURL}">View Details</a></td>
-		<td><c:url value="modifyMeal?mealId=${meal.mealId}" var="modifyMealPlanURL"/>
+		<td><c:url value="modifyMeal?mealId=${meal.mealId}" var="modifyMealURL"/>
 		<a href="${modifyMealURL}">Modify Details</a></td>
 		</tr>
 </c:forEach>
