@@ -2,7 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-
+<div class="main-box">
 <h1>My Meals</h1>
 <p class="lead">Access all your meals in your library below.</p>
 <table class="table table-striped">
@@ -12,17 +12,17 @@
 			<th></th>
 		</tr>
 	
-	<c:forEach items="${mealPlan}" var="mealPlan">
+	<c:forEach items="${meals}" var="meal">
 		<tr>
-		<td><c:out value="${mealPlan.mealPlanDescription}" /></td>
-		<td><c:url value="mealPlanDetails?mealPlanId=${mealPlan.mealPlanId}" var="viewMealPlanDetailsURL"/>
-		<a href="${viewMealPlanDetailsURL}">View Details</a></td>
-		<td><c:url value="modifyMealPlan?mealPlanId=${mealPlan.mealPlanId}" var="modifyMealPlanURL"/>
-		<a href="${modifyMealPlanURL}">Modify Details</a></td>
+		<td><c:out value="${meal.mealDescription}" /></td>
+		<td><c:url value="mealDetails?mealId=${mealPlan.mealPlanId}" var="viewMealDetailsURL"/>
+		<a href="${viewMealDetailsURL}">View Details</a></td>
+		<td><c:url value="modifyMeal?mealId=${meal.mealId}" var="modifyMealPlanURL"/>
+		<a href="${modifyMealURL}">Modify Details</a></td>
 		</tr>
 </c:forEach>
 	
 </table>
 
-
+</div>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
