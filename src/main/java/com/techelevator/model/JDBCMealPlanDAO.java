@@ -56,8 +56,8 @@ public class JDBCMealPlanDAO implements MealPlanDAO{
 		jdbcTemplate.update(sqlInsertMealPlan, mealPlanId, userId, mealPlan.getMealPlanDescription());
 		
 		ArrayList<Long> mealIds = mealPlan.getMealId();
-		//Set<Long> mealSet = new HashSet<>(mealIds);
-		for(Long mealId : mealIds) {
+		Set<Long> mealSet = new HashSet<>(mealIds);
+		for(Long mealId : mealSet) {
 			String sqlInsertMeal_MealPlan = "INSERT INTO meal_mealplan(meal_id, mealplan_id)"
 											+ "VALUES(?,?);";
 			if(mealId != null) {
