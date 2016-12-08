@@ -40,7 +40,7 @@ CREATE TABLE directions (
 	step_id 	INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_directions_step_id'),
 	recipe_id INTEGER NOT NULL,
 	--step_number INTEGER NOT NULL,
-	step_description varchar(200)
+	step_description varchar(500)
 );
 
 ALTER TABLE directions ADD CONSTRAINT fk_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id);
