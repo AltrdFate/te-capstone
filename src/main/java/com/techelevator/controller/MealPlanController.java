@@ -50,7 +50,7 @@ public class MealPlanController {
 										ModelMap model, MealPlan mealPlan) {
 		String username = (String) session.getAttribute("currentUser");
 		mealPlanDao.createMealPlan(mealPlan, username);
-		return "redirect:/mealPlanDetails";
+		return "redirect:/mealPlanLibrary";
 	}
 	
 	@RequestMapping(path="/mealPlanDetails", method=RequestMethod.GET)
