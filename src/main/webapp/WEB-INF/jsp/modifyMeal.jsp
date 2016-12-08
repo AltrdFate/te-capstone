@@ -16,20 +16,24 @@
 			<label for="mealName">Meal Name:</label><br> <input type="text"
 				id="mealName" name="mealDescription" value="${mealName}"
 				placeholder="Meal Name" />
-
+			<p>
 			<c:forEach var="i" begin="1" end="5">
-				<br><p>Current Recipe: <c:out value="${recipesInMeal[i-1].recipeName}"/></p>
+					<br><p>Current Recipe: <c:out value="${recipesInMeal[i-1].recipeName}"/><br>
+				
 				<select name="recipeIds" id="recipeChoice">
 					<c:forEach var="recipe" items="${recipeLibrary}">
 						<option value="${recipe.recipeId}">${recipe.recipeName}</option>
 					</c:forEach>
 					<option value="" selected>None</option>
 				</select>
+				<p>
 			</c:forEach>
-			<br> <br>
+			<br> 
 			<p>
 				<button type="submit" id="modifyMealButton" class="btn btn-primary">Submit</button>
 			</p>
+			<c:url value="/mealLibrary" var="mealLibraryURL"/>
+			<a href="${mealLibraryURL}">Cancel</a>
 		</form>
 	</div>
 </div>

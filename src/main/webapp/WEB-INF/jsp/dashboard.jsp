@@ -56,13 +56,12 @@
 				<p class="lead">My Meal Plan</p>
 			</div>
 			<div class="optionDetails">
-				<c:url var="createMealplan" value="/createMealplan" />
-				<c:url var="createMeal" value="/createMeal" />
-				<a href="${createMeal}">Create a Meal</a>
-				<p>
-					<a href="${createMealplan}">Create a Meal Plan</a>
-				<p>View My Meal Plan
+			Set yourself up for success. Create multiple meal plans, adding a variety of meals to plan out your week. 
 			</div>
+			<br>
+			<p>
+			<c:url var="createMealPlanURL" value="/createMealPlan" />
+				<a href="${createMealPlanURL}"><button type="button" id="getStartedMealPlan" class="btn btn-primary">Get Started</button></a>
 		</div>
 		<div class="option">
 			<div class="optionImg">
@@ -72,10 +71,13 @@
 				<p class="lead">My Grocery List</p>
 			</div>
 			<div class="optionDetails">
-
-				View My Grocery List
-				<p>Modify My Grocery
+				Make your plan a reality. Easily generate a grocery list based on your meal plan for the week.
 			</div>
+			<br>
+			<p>
+				<c:url var="mealPlanLibraryURL" value="/mealPlanLibrary" />
+				<a href="${mealPlanLibraryURL}"><button type="button" id="getStartedGrocery" class="btn btn-primary">Get Started</button></a>
+					</p>
 		</div>
 	</div>
 </div>
