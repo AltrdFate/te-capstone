@@ -79,6 +79,12 @@ public class UserController {
 		return destination != null && destination.startsWith("http://localhost");
 	}
 	
+	@RequestMapping(path="/logout", method=RequestMethod.POST)
+	public String logout(ModelMap model, HttpSession session) {
+		model.remove("currentUser");
+		session.removeAttribute("currentUser");
+		return "redirect:/";
+	}
 	/*@RequestMapping(path="/addRecipe", method=RequestMethod.GET)
 	public String displayAddRecipePage(HttpSession session) {
 		session.getAttribute("currentUser");
