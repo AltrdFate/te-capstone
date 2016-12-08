@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -126,7 +127,18 @@ public class JDBCMealPlanDAO implements MealPlanDAO{
 			allMealPlans.add(mealPlan);
 		}
 		return allMealPlans;
-				
 	}
+	
+//	public HashMap<Long, String> getDaysOfTheWeek() {
+//		HashMap<Long, String> week = new HashMap<>();
+//		week.put(Long.valueOf(0), "Monday");
+//		week.put(Long.valueOf(1), "Tuesday");
+//		week.put(Long.valueOf(2), "Wednesday");
+//		week.put(Long.valueOf(3), "Thursday");
+//		week.put(Long.valueOf(4), "Friday");
+//		week.put(Long.valueOf(5), "Saturday");
+//		week.put(Long.valueOf(6), "Sunday");
+//		return week;
+//	}
 }
 

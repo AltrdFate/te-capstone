@@ -76,4 +76,36 @@ public class MealPlanController {
 		model.put("mealPlanList", mealPlanList);
 		return "mealPlanLibrary";
 	}
+
+	@RequestMapping(path="/modifyMealPlan", method=RequestMethod.GET)
+	public String viewModifyMealPlan(HttpSession session, 
+								ModelMap model, 
+								@RequestParam Long mealPlanId) {
+		String username = (String) session.getAttribute("currentUser");
+		MealPlan mealPlan = mealPlanDao.getMealPlan(mealPlanId);
+		model.put("mealPlan", mealPlan);
+		ArrayList<Long> mealIds= mealPlan.getMealId();
+		ArrayList<String> mealNames = new ArrayList<>();
+		for(Long mealId:mealIds){
+			String mealName = mealDao.displayMealName(mealId);
+			mealNames.add(mealName);
+		}
+		model.put("mealNames", mealNames);
+		
+		ArrayList<Meal> allMeals = mealDao.viewAllMealsByUserId(username);
+		model.put("allMeals", allMeals);
+		return "modifyMealPlan";
+	}
+	
+	@Transactional
+	@RequestMapping(path="/modifyMealPlan", method=RequestMethod.POST)
+	public String submitModifiedMealPlan(HttpSession session, 
+								ModelMap model,
+								MealPlan mealPlan, 
+								@RequestParam Long mealPlanId,
+								Meal meal) {
+		String username = (String) session.getAttribute("currentUser");
+		
+		return "redirect:/mealPlanLibrary";
+	}
 }

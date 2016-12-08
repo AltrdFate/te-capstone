@@ -17,9 +17,9 @@
 		<tr>
 		<td><c:out value="${mealPlan.mealPlanDescription}" /></td>
 		<td><c:url value="mealDetails?mealId=${mealPlan.mealPlanId}" var="viewMealDetailsURL"/>
-		<a href="${viewMealDetailsURL}">View Meal</a></td>
-		<td><c:url value="modifyMeal?mealId=${mealPlan.mealPlanId}" var="modifyMealURL"/>
-		<a href="${modifyMealURL}">Modify Meal</a></td>
+		<a href="${viewMealDetailsURL}">View Meals</a></td>
+		<td><c:url value="modifyMealPlan?mealPlanId=${mealPlan.mealPlanId}" var="modifyMealPlanURL"/>
+		<a href="${modifyMealPlanURL}">Modify Meal Plan</a></td>
 		</tr>
 </c:forEach>
 	
