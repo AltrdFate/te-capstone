@@ -210,3 +210,8 @@ nav li {
 	position: relative;
 	display: inline-block;
 }
+
+.delete {
+	font-weight: bold;
+	color: red;
+}

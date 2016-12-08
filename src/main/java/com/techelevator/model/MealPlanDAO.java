@@ -10,4 +10,6 @@ public interface MealPlanDAO {
 	public MealPlan getMealPlan(Long mealPlanId);
 	
 	public ArrayList<MealPlan> getAllMealPlansByUserId(String username);
+	
+	public void deleteMealPlan(Long mealPlanId);
 }

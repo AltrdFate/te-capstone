@@ -21,12 +21,20 @@ public class JDBCGroceryListDAO implements GroceryListDAO {
 	}
 
 	@Override
-	public List<String> getAllIngredientsByUserId(String username) {
-		String sqlSelectAllIngredientsByUserId = "SELECT DISTINCT ing.ing_description FROM ingredients ing "
-												+ "JOIN recipe rec ON rec.recipe_id = ing.recipe_id "
-												+ "WHERE user_id=?";
-		Long userId = getUserId(username);
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllIngredientsByUserId, userId);
+	public List<String> getAllIngredientsByMealPlanId(Long mealPlanId) {
+		String sqlSelectAllIngredientsByMealPlanId = "SELECT DISTINCT ing.ing_description "
+														+ "FROM ingredients ing JOIN recipe rec "
+														+ "ON rec.recipe_id = ing.recipe_id "
+														+ "JOIN recipe_meal rm "
+														+ "ON rm.recipe_id = rec.recipe_id "
+														+ "JOIN meal m "
+														+ "ON m.meal_id = rm.meal_id "
+														+ "JOIN meal_mealplan mmp "
+														+ "ON mmp.meal_id = m.meal_id "
+														+ "JOIN mealplan mp "
+														+ "ON mp.mealplan_id = mmp.mealplan_id "
+														+ "WHERE mp.mealplan_id = ?;";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllIngredientsByMealPlanId, mealPlanId);
 		List<String> allIngredients = new ArrayList<String>();
 		while(results.next()) {
 			allIngredients.add(results.getString("ing_description"));

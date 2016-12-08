@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface GroceryListDAO {
 	
-	public List<String> getAllIngredientsByUserId(String username);
+	public List<String> getAllIngredientsByMealPlanId(Long mealPlanId);
 
 }

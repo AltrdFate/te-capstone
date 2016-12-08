@@ -13,9 +13,9 @@
 	<form id="mealPlanForm" method="POST" action="${formAction}">
 
 		<div>
-			<label for="mealPlanDescription">Meal Plan Description:</label><br>
+			<label for="mealPlanDescription">Meal Plan Name:</label><br>
 			<input type="text" id="mealPlanDescription"
-				name="mealPlanDescription" placeholder="Description" />
+				name="mealPlanDescription" placeholder="Meal Plan Name" />
 		</div>
 
 		<div>

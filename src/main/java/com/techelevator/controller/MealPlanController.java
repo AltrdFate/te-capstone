@@ -100,12 +100,8 @@ public class MealPlanController {
 	@Transactional
 	@RequestMapping(path="/modifyMealPlan", method=RequestMethod.POST)
 	public String submitModifiedMealPlan(HttpSession session, 
-								ModelMap model,
-								MealPlan mealPlan, 
-								@RequestParam Long mealPlanId,
-								Meal meal) {
-		String username = (String) session.getAttribute("currentUser");
-		
+								@RequestParam Long mealPlanId) {
+		mealPlanDao.deleteMealPlan(mealPlanId);
 		return "redirect:/mealPlanLibrary";
 	}
 }
