@@ -41,7 +41,7 @@ public class UserController {
 	@RequestMapping(path="/users/new", method=RequestMethod.POST) 
 	public String createUser(@RequestParam String username, @RequestParam String password) {
 		userDAO.saveUser(username, password);
-		mealDAO.insertEmptyMeal(username);
+		//mealDAO.insertEmptyMeal(username);
 		return "redirect:/login";
 	}
 	

@@ -25,16 +25,17 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
+						<option value="" selected>None</option>
 				</select><br> 
 			</div>
-<div>
+		<div>
 			<h3>Tuesday</h3>
 			<div class="meals">
 				<select name="mealId" id="mealId">
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					
+					<option value="" selected>None</option>
 				</select><br> 
 			</div>
 			
@@ -44,7 +45,7 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					
+					<option value="" selected>None</option>
 				</select><br> 
 			</div>
 			
@@ -54,7 +55,7 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					
+					<option value="" selected>None</option>
 				</select><br> 
 			</div>
 			
@@ -64,7 +65,7 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					
+					<option value="" selected>None</option>
 				</select><br> 
 			</div>
 			
@@ -74,7 +75,7 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					
+					<option value="" selected>None</option>
 				</select><br> 
 			</div>
 			
@@ -84,7 +85,7 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					
+					<option value="" selected>None</option>
 				</select><br> 
 			</div>
 			
