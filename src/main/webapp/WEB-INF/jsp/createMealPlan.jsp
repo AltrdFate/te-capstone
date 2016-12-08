@@ -13,9 +13,9 @@
 	<form id="mealPlanForm" method="POST" action="${formAction}">
 
 		<div>
-			<label for="mealPlanDescription">Meal Plan Description:</label><br>
+			<label for="mealPlanDescription">Meal Plan Name:</label><br>
 			<input type="text" id="mealPlanDescription"
-				name="mealPlanDescription" placeholder="Description" />
+				name="mealPlanDescription" placeholder="Meal Plan Name" />
 		</div>
 
 		<div>
@@ -25,10 +25,10 @@
 					<c:forEach var="meal" items="${meals}">
 						<option value="${meal.mealId}">${meal.mealDescription}</option>
 					</c:forEach>
-					<option value="" selected>None</option>
+						<option value="" selected>None</option>
 				</select><br> 
 			</div>
-<div>
+		<div>
 			<h3>Tuesday</h3>
 			<div class="meals">
 				<select name="mealId" id="mealId">

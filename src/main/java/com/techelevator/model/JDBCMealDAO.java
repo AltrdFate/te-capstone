@@ -125,5 +125,13 @@ public class JDBCMealDAO implements MealDAO {
 		}
 		return allMeals;
 	}
+
+	@Override
+	public void insertEmptyMeal(String username) {
+		Long mealId = getNextMealId();
+		Long userId = getUserId(username);
+		String sqlInsertEmptyMealForNewUser = "INSERT INTO meal(meal_id, user_id, meal_description) VALUES(?, ?, ?);";
+		jdbcTemplate.update(sqlInsertEmptyMealForNewUser, mealId, userId, "None");
+	}
 	
 }

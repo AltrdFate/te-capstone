@@ -128,6 +128,15 @@ public class JDBCMealPlanDAO implements MealPlanDAO{
 		}
 		return allMealPlans;
 	}
+
+	@Override
+	public void deleteMealPlan(Long mealPlanId) {
+		String sqlDeleteMealPlanById = "DELETE FROM meal_mealplan "
+										+ "WHERE mealplan_id = ?;"
+										+ " DELETE FROM mealplan "
+										+ "WHERE mealplan_id = ?";
+		jdbcTemplate.update(sqlDeleteMealPlanById, mealPlanId, mealPlanId);
+	}
 	
 //	public HashMap<Long, String> getDaysOfTheWeek() {
 //		HashMap<Long, String> week = new HashMap<>();

@@ -9,7 +9,8 @@
 				var="modifyURL" />
 			<li><a href="${modifyURL}">Modify Recipe</a></li>
 			<li>|</li>
-			<li>Add to Meal Plan</li>
+			<c:url value="/createMeal" var="createMealURL"/>
+			<li><a href="${createMealURL}">Add to Meal</a></li>
 		</ul>
 	</div>
 	<h1>

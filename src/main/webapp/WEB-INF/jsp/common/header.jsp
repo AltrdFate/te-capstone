@@ -67,8 +67,10 @@
 			</nav>
 		</div>
 		<div class="logoutButton">
-			<c:url var="logoutURL" value="/login"/>
-			<a href="${logoutURL}"><button type="button" class="btn btn-outline-primary">Logout</button></a>
+			<c:url var="logoutURL" value="/logout"/>
+			<form id="logoutForm" action="${logoutURL}" method="POST">
+				<a href="${logoutURL}"><button type="submit" class="btn btn-outline-primary">Logout</button></a>
+			</form>
 		</div>
 	</div>
 

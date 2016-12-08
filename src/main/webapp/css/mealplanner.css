@@ -54,7 +54,7 @@ section {
 .option {
 	position: relative;
 	display: inline-block;
-	width: 275px;
+	width: 290px;
 	height: 350px;
 	vertical-align: top;
 	padding: 20px;
@@ -62,7 +62,7 @@ section {
 	border-width: 1px;
 	border-color: lightgrey;
 	border-radius: 60px;  */
-	margin: 20px;
+	margin: 40px;
 	vertical-align:top;
 }
 
@@ -209,4 +209,9 @@ nav li {
 	right: 0;
 	position: relative;
 	display: inline-block;
+}
+
+.delete {
+	font-weight: bold;
+	color: red;
 }
