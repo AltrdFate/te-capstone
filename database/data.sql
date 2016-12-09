@@ -118,27 +118,38 @@ INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (10,10);
 
 -- **************************************************Recipe 6************************************************************ --
 
-INSERT INTO recipe (user_id, name, rec_description) VALUES (2, 'Marinated Grilled Shrimp', 'A wonderful baked chicken recipe that is quick and easy!');
+INSERT INTO recipe (user_id, name, rec_description) VALUES (2, 'Cajun Chicken Pasta', 'Cajun cooking is a combination of French and Southern cuisine. It is robust, country style cookery - and so is this dish!');
 
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '6 skinless, boneless chicken breast halves');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '1 clove garlic, minced');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '1 cup dry bread crumbs');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '2/3 cup grated Parmesan cheese');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '1 teaspoon dried basil leaves');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '1/4 teaspoon ground black pepper');
-INSERT INTO ingredients (recipe_id, ing_description) VALUES (10, '2 tablespoons olive oil');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '4 ounces linguine pasta');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '2 skinless, boneless chicken breast halves');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '2 teaspoons Cajun seasoning');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '2 tablespoons butter');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1 red bell pepper, sliced');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1 green bell pepper, sliced');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '4 fresh mushrooms, sliced');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '4 ounces linguine pasta');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1 green onion, chopped');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1 cup heavy cream');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1/4 teaspoon dried basil');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1/4 teaspoon lemon pepper');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1/4 teaspoon salt');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1/8 teaspoon garlic powder');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1/8 teaspoon ground black pepper');
+INSERT INTO ingredients (recipe_id, ing_description) VALUES (11, '1/4 cup grated Parmesan cheese');
 
 
-INSERT INTO directions (recipe_id, step_description) VALUES (10, 'Preheat oven to 350 degrees F (175 degrees C). Lightly grease a 9x13 inch baking dish.');
-INSERT INTO directions (recipe_id, step_description) VALUES (10, 'In a bowl, blend the olive oil and garlic.');
-INSERT INTO directions (recipe_id, step_description) VALUES (10, 'In a separate bowl, mix the bread crumbs, Parmesan cheese, basil, and pepper.');
-INSERT INTO directions (recipe_id, step_description) VALUES (10, 'Dip each chicken breast in the oil mixture, then in the bread crumb mixture.');
-INSERT INTO directions (recipe_id, step_description) VALUES (10, 'Arrange the coated chicken breasts in the prepared baking dish, and top with any remaining bread crumb mixture.');
-INSERT INTO directions (recipe_id, step_description) VALUES (10, 'Bake 30 minutes in the preheated oven, or until chicken is no longer pink and juices run clear.');
+
+INSERT INTO directions (recipe_id, step_description) VALUES (11, 'Bring a large pot of lightly salted water to a boil. Add pasta and cook for 8 to 10 minutes or until al dente; drain.');
+INSERT INTO directions (recipe_id, step_description) VALUES (11, 'Place the chicken and the Cajun seasoning in a plastic bag. Shake to coat. In a large skillet over medium heat, saute the chicken in butter or margarine until almost tender (5 to 7 minutes).');
+INSERT INTO directions (recipe_id, step_description) VALUES (11, 'Add the red bell pepper, green bell pepper, mushrooms and green onion. Saute and stir for 2 to 3 minutes. Reduce heat.');
+INSERT INTO directions (recipe_id, step_description) VALUES (11, 'Add the cream, basil, lemon pepper, salt, garlic powder and ground black pepper. Heat through. Add the cooked linguine, toss and heat through. Sprinkle with grated Parmesan cheese and serve.');
+
+
+
 
 
 INSERT INTO meal (user_id, meal_description) VALUES (2, 'Tastes fried but baked!!!');
 
-INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (10,10);
+INSERT INTO recipe_meal (recipe_id, meal_id) VALUES (11,11);
 
 COMMIT;
