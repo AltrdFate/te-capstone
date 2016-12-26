@@ -1,6 +1,6 @@
-Feature: This is an example feature
+Feature: Go to sign up page
 
-	Scenario: Use this as an example
-		Given I am a student
-		When I need an example
-		Then I use this file
+	Scenario: Go to create account from login page
+		Given I am a new user without a profile
+		When I click on the sign up button
+		Then I will be taken to the sign up page

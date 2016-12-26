@@ -15,6 +15,6 @@ public class RunCukesTest {
 		 * when it is created. We set that property here so that it is available
 		 * when the driver is instantiated by Spring */
 		String homeDir = System.getProperty("user.home");
-		System.setProperty("webdriver.chrome.driver", homeDir+"/dev-tools/chromedriver/chromedriver");
+		System.setProperty("webdriver.chrome.driver", homeDir+"/dev-tools/chromedriver/chromedriver.exe");
 	}
 }

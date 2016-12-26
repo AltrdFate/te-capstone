@@ -1,8 +1,10 @@
 package com.techelevator.cukes;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -19,21 +21,22 @@ public class ExampleSteps {
 		this.webDriver = webDriver;
 	}
 	
-	@Given("^I am a student$")
-	public void i_am_a_student() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@Given("^I am a new user without a profile$")
+	public void i_am_a_new_user_without_a_profile() throws Throwable {
+		webDriver = new ChromeDriver();
+	    webDriver.navigate().to("http://localhost:8080/capstone/");
+	   // throw new PendingException();
 	}
 
-	@When("^I need an example$")
-	public void i_need_an_example() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@When("^I click on the sign up button$")
+	public void i_click_on_the_sign_up_button() throws Throwable {
+	    webDriver.findElement(By.linkText("Sign Up")).click();
+	   // throw new PendingException();
 	}
 
-	@Then("^I use this file$")
-	public void i_use_this_file() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@Then("^I will be taken to the sign up page$")
+	public void i_can_go_to_the_sign_up_page() throws Throwable {
+		   System.out.println(webDriver.getCurrentUrl());
+	  //  throw new PendingException();
 	}
 }
